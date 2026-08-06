@@ -2,7 +2,6 @@
 
 import { useReducedMotion } from "motion/react";
 import { type MouseEvent, useEffect, useRef, useState } from "react";
-import { ProCard } from "@/components/app/docs/pro-card";
 import { cn } from "@/lib/utils";
 
 export type PageNavItem = {
@@ -166,7 +165,6 @@ export function PageNav({ items }: { items: PageNavItem[] }) {
             })}
           </ul>
         </nav>
-        <ProCard />
       </div>
     </aside>
   );
