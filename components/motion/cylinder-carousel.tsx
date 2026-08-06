@@ -1,23 +1,23 @@
 "use client";
 
 import {
-  animate,
   type AnimationPlaybackControls,
-  motion,
+  animate,
   type MotionValue,
+  motion,
   useMotionValue,
   useReducedMotion,
   useTransform,
 } from "motion/react";
 import {
   Children,
-  type PointerEvent as ReactPointerEvent,
   type ReactNode,
+  type PointerEvent as ReactPointerEvent,
+  type WheelEvent as ReactWheelEvent,
   useCallback,
   useEffect,
   useRef,
   useState,
-  type WheelEvent as ReactWheelEvent,
 } from "react";
 import { cn } from "@/lib/utils";
 

@@ -59,8 +59,8 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/motion/popover";
-import { PullToRefresh } from "@/components/motion/pull-to-refresh";
 import { PreviewRail } from "@/components/motion/preview-rail";
+import { PullToRefresh } from "@/components/motion/pull-to-refresh";
 import { RadioGroup, RadioGroupItem } from "@/components/motion/radio";
 import { RangeSlider } from "@/components/motion/range-slider";
 import { BubbleSlider } from "@/components/motion/range-slider-bubble";

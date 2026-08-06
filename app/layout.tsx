@@ -1,17 +1,15 @@
-import type { Metadata, Viewport } from "next";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { GoogleAnalytics } from "@/components/app/analytics/google-analytics";
+import { JsonLd } from "@/components/app/analytics/json-ld";
+import { KeyboardShortcuts } from "@/components/app/chrome/keyboard-shortcuts";
+import { SiteFrame } from "@/components/app/chrome/site-frame";
+import { SiteHeader } from "@/components/app/chrome/site-header";
 import { ThemeProvider } from "@/components/app/chrome/theme-provider";
 import { PreferencesProvider } from "@/components/app/preferences/preferences-provider";
-import { PreferencesPanel } from "@/components/app/preferences/preferences-panel";
-import { SiteHeader } from "@/components/app/chrome/site-header";
-import { SiteDock } from "@/components/app/chrome/site-dock";
-import { SiteFrame } from "@/components/app/chrome/site-frame";
-import { KeyboardShortcuts } from "@/components/app/chrome/keyboard-shortcuts";
-import { JsonLd } from "@/components/app/analytics/json-ld";
 import { getGithubStarCount } from "@/lib/github";
 import {
   AUTHOR,
@@ -137,11 +135,9 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           <PreferencesProvider>
             <KeyboardShortcuts />
             <SiteHeader githubStarCount={githubStarCount} />
-            <main className="pt-14 pb-32">
+            <main className="pt-14 pb-16">
               <SiteFrame>{children}</SiteFrame>
             </main>
-            <SiteDock />
-            <PreferencesPanel />
             {process.env.NODE_ENV === "production" && <Analytics />}
             {process.env.NODE_ENV === "production" && <SpeedInsights />}
             <GoogleAnalytics measurementId={googleAnalyticsId} />

@@ -30,8 +30,8 @@ import {
   type ApprovalCardQuestion,
   type ApprovalCardStatus,
 } from "@/components/agents/approval-card";
-import { CodeBlock } from "@/components/agents/code-block";
 import { ChatApp } from "@/components/agents/chat-app";
+import { CodeBlock } from "@/components/agents/code-block";
 import { FileDiff } from "@/components/agents/file-diff";
 import { ImageGeneration } from "@/components/agents/image-generation";
 import { ThinkingShimmer } from "@/components/agents/loading-states";
@@ -50,7 +50,7 @@ import {
 import { MessageScroller } from "@/components/agents/message-scroller";
 import { PromptInput } from "@/components/agents/prompt-input";
 import { StreamingResponse } from "@/components/agents/streaming-response";
-import { TodoList, type TodoItem } from "@/components/agents/todo-list";
+import { type TodoItem, TodoList } from "@/components/agents/todo-list";
 import {
   ToolApproval,
   ToolApprovalCode,

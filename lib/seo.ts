@@ -1,45 +1,47 @@
 import type { JsonLdSchema } from "@/components/app/analytics/json-ld";
 import { componentDates } from "@/lib/component-dates";
 import {
+  allComponents,
   type CategoryEntry,
   type ComponentEntry,
-  allComponents,
   registry,
 } from "@/lib/registry";
 import { SITE_URL } from "@/lib/site";
 
 export const SITE = SITE_URL;
-export const SITE_NAME = "beUI";
-export const SITE_TITLE = "Animated Components for React and Next.js";
-export const SITE_TAGLINE = "Animated components for React and Next.js";
+export const SITE_NAME = "Oxygen UI";
+export const SITE_TITLE = "Solana-First React UI Primitives & Motion Design System";
+export const SITE_TAGLINE = "Solana-first React UI primitives monorepo built with Motion & Tailwind CSS";
 export const SITE_DESCRIPTION =
-  "Free, open-source animated components for React and Next.js, built with Motion and Tailwind CSS. Copy the source or install with the shadcn CLI.";
-export const AUTHOR = "Saurabh";
+  "Open-source, Solana-first React UI primitive library and design system monorepo built for high-performance Web3 application developers.";
+export const AUTHOR = "Oxygen UI Team";
 
 const abs = (path: string) => (path.startsWith("http") ? path : `${SITE}${path}`);
 
 const KEYWORD_SUFFIXES = [
   "component",
   "React component",
-  "Next.js component",
-  "Tailwind component",
+  "Solana component",
+  "Web3 primitive",
   "framer motion component",
   "shadcn component",
   "animation",
   "example",
 ];
-const KEYWORD_PREFIXES = ["", "animated ", "free ", "best "];
+const KEYWORD_PREFIXES = ["", "animated ", "solana ", "free ", "best "];
 
 const BASE_KEYWORDS = [
+  "Solana React components",
+  "Solana UI primitives",
+  "Web3 UI components",
+  "Oxygen UI",
   "React motion component",
   "best motion components",
   "free motion components",
   "open source motion components",
   "framer motion component",
-  "best framer motion components",
   "Tailwind CSS component",
   "shadcn registry",
-  "beUI",
 ];
 
 /**

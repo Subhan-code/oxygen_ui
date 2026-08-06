@@ -1,6 +1,6 @@
 import { componentDates } from "@/lib/component-dates";
 import { getComponentProps } from "@/lib/props-extractor";
-import { findComponent, type ComponentExample } from "@/lib/registry";
+import { type ComponentExample, findComponent } from "@/lib/registry";
 import { buildEntry } from "@/lib/registry-server";
 import { pageUrlFor } from "@/lib/signature";
 import { readOptionalSourceFile } from "@/lib/source-files";

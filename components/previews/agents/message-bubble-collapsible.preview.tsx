@@ -2,16 +2,16 @@
 
 import { Bot } from "lucide-react";
 import {
-  MessageBubble,
-  MessageBubbleCollapsible,
-  MessageBubbleContent,
-} from "@/components/agents/message-bubble";
-import {
   Message,
   MessageAvatar,
   MessageContent,
   MessageHeader,
 } from "@/components/agents/message";
+import {
+  MessageBubble,
+  MessageBubbleCollapsible,
+  MessageBubbleContent,
+} from "@/components/agents/message-bubble";
 import { StreamingResponse } from "@/components/agents/streaming-response";
 
 export function MessageBubbleCollapsiblePreview() {

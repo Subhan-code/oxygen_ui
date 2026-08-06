@@ -4,8 +4,8 @@ import { TextReveal } from "@/components/motion/text-reveal";
 import {
   NOT_FOUND_DEFAULTS,
   NotFoundActions,
-  NotFoundStage,
   type NotFoundProps,
+  NotFoundStage,
 } from "./shared";
 
 const TYPE_SPRING = { stiffness: 320, damping: 30, mass: 0.6 };

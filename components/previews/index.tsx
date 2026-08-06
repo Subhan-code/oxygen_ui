@@ -4,6 +4,42 @@ import type { ComponentType } from "react";
 // Every preview is a client component dragging the library + motion with it.
 // Lazy chunks keep a page's JS limited to the previews it actually renders.
 export const previews: Record<string, ComponentType> = {
+  "solana/identity": dynamic(() =>
+    import("./solana/identity.preview").then((m) => m.SolanaIdentityPreview),
+  ),
+  "solana/network": dynamic(() =>
+    import("./solana/network.preview").then((m) => m.SolanaNetworkPreview),
+  ),
+  "solana/assets": dynamic(() =>
+    import("./solana/assets.preview").then((m) => m.SolanaAssetsPreview),
+  ),
+  "solana/transactions": dynamic(() =>
+    import("./solana/transactions.preview").then((m) => m.SolanaTransactionsPreview),
+  ),
+  "solana/application": dynamic(() =>
+    import("./solana/application.preview").then((m) => m.SolanaApplicationPreview),
+  ),
+  "motion/nft-tilt-card": dynamic(() =>
+    import("./motion/tilt-card.preview").then((m) => m.TiltCardPreview),
+  ),
+  "motion/solana-wallet-button": dynamic(() =>
+    import("./motion/button-base.preview").then((m) => m.ButtonBasePreview),
+  ),
+  "motion/crypto-ticker-marquee": dynamic(() =>
+    import("./motion/marquee.preview").then((m) => m.MarqueePreview),
+  ),
+  "motion/defi-dex-tabs": dynamic(() =>
+    import("./motion/tabs.preview").then((m) => m.TabsPreview),
+  ),
+  "motion/protocol-switch": dynamic(() =>
+    import("./motion/switch.preview").then((m) => m.SwitchPreview),
+  ),
+  "motion/solana-address-input": dynamic(() =>
+    import("./motion/input.preview").then((m) => m.InputPreview),
+  ),
+  "motion/token-select": dynamic(() =>
+    import("./motion/select.preview").then((m) => m.SelectPreview),
+  ),
   "agents/chat-app": dynamic(() =>
     import("./agents/chat-app.preview").then(
       (m) => m.ChatAppPreview,
@@ -380,6 +416,11 @@ export const previews: Record<string, ComponentType> = {
   ),
   "motion/theme-toggle": dynamic(() =>
     import("./motion/theme-toggle.preview").then((m) => m.ThemeTogglePreview),
+  ),
+  "motion/blur-shimmer-text": dynamic(() =>
+    import("./motion/blur-shimmer-text.preview").then(
+      (m) => m.BlurShimmerTextPreview,
+    ),
   ),
   "motion/smooth-scroll": dynamic(() =>
     import("./motion/smooth-scroll.preview").then((m) => m.SmoothScrollPreview),

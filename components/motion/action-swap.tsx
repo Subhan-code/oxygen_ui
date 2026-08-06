@@ -1,7 +1,7 @@
 "use client";
 
-import { AnimatePresence, motion, useReducedMotion, type HTMLMotionProps, type Variants } from "motion/react";
-import { useLayoutEffect, useRef, useState, type ReactNode } from "react";
+import { AnimatePresence, type HTMLMotionProps, motion, useReducedMotion, type Variants } from "motion/react";
+import { type ReactNode, useLayoutEffect, useRef, useState } from "react";
 import { EASE_OUT, EASE_OUT_CSS, SPRING_PRESS, SPRING_SWAP } from "@/lib/ease";
 import { cn } from "@/lib/utils";
 

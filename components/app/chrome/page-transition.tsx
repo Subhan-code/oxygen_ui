@@ -2,7 +2,7 @@
 
 import { motion, useReducedMotion } from "motion/react";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { type ReactNode, useEffect, useRef, useState } from "react";
 import { EASE_OUT } from "@/lib/ease";
 
 export function PageTransition({ children }: { children: ReactNode }) {

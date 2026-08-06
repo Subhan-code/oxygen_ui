@@ -4,28 +4,28 @@ import {
   Accessibility,
   Bell,
   CircleGauge,
+  type LucideIcon,
   MousePointer2,
   PanelTopOpen,
   RefreshCw,
   Rows3,
   Sparkles,
   Zap,
-  type LucideIcon,
 } from "lucide-react";
 import {
   AnimatePresence,
   motion,
-  useReducedMotion,
   type Transition,
+  useReducedMotion,
   type Variants,
 } from "motion/react";
-import { useId, useState, type ReactNode } from "react";
-import { useHoverCapable } from "@/lib/hooks/use-hover-capable";
+import { type ReactNode, useId, useState } from "react";
 import {
   EASE_IN_OUT,
   EASE_OUT,
   SPRING_PRESS,
 } from "@/lib/ease";
+import { useHoverCapable } from "@/lib/hooks/use-hover-capable";
 import { cn } from "@/lib/utils";
 
 type RecipeDemo = "press" | "icon" | "reveal" | "layout" | "swap";

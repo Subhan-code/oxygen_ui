@@ -1,9 +1,9 @@
 "use client";
 
-import { Moon, Sun } from "lucide-react";
-import { useTheme } from "next-themes";
 import { useReducedMotion } from "motion/react";
-import { useEffect, useState, type ComponentPropsWithoutRef } from "react";
+import { useTheme } from "next-themes";
+import { type ComponentPropsWithoutRef, useCallback, useEffect, useState } from "react";
+import { MoonIcon, Sun01Icon } from "@/components/app/icons";
 import { ActionSwapIcon } from "@/components/motion/action-swap";
 import { EASE_OUT_CSS } from "@/lib/ease";
 import { cn } from "@/lib/utils";
@@ -138,7 +138,7 @@ export function useThemeToggle({
   }, []);
   const isDark = mounted && resolvedTheme === "dark";
 
-  const toggle = () => {
+  const toggle = useCallback(() => {
     const next = isDark ? "light" : "dark";
 
     if (reduce || !("startViewTransition" in document)) {
@@ -168,7 +168,26 @@ export function useThemeToggle({
     vt.finished.finally(() => {
       delete root.dataset.beuiVt;
     });
-  };
+  }, [isDark, reduce, setTheme, start, variant]);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "d" || e.key === "D") {
+        const target = e.target as HTMLElement | null;
+        if (
+          target &&
+          (target.tagName === "INPUT" ||
+            target.tagName === "TEXTAREA" ||
+            target.isContentEditable)
+        ) {
+          return;
+        }
+        toggle();
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [toggle]);
 
   return { isDark, mounted, toggle };
 }
@@ -197,9 +216,9 @@ export function ThemeToggle({
           className={iconClassName}
         >
           {isDark ? (
-            <Sun className={iconClassName} />
+            <MoonIcon className={cn("size-4.5 text-foreground", iconClassName)} />
           ) : (
-            <Moon className={iconClassName} />
+            <Sun01Icon className={cn("size-4.5 text-foreground", iconClassName)} />
           )}
         </ActionSwapIcon>
       ) : (

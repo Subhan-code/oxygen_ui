@@ -1,10 +1,10 @@
-import { cn } from "@/lib/utils";
 import type { ElementType, ReactNode } from "react";
 import {
   TEXT_SHIMMER_CLASS_NAME,
   TEXT_SHIMMER_KEYFRAMES,
   textShimmerStyle,
 } from "@/lib/text-shimmer";
+import { cn } from "@/lib/utils";
 
 export interface TextShimmerProps {
   children: ReactNode;

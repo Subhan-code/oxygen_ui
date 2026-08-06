@@ -1,11 +1,11 @@
 "use client";
 
-import { useId } from "react";
-import { AnimatePresence, motion } from "motion/react";
 import { ChevronDown, Loader2, Wallet } from "lucide-react";
-import type { Chain, Token, TokenSide } from "./types";
-import { TokenDot } from "./token-badges";
+import { AnimatePresence, motion } from "motion/react";
+import { useId } from "react";
 import { EASE } from "./constants";
+import { TokenDot } from "./token-badges";
+import type { Chain, Token, TokenSide } from "./types";
 import { formatAmount, sanitizeAmount } from "./utils";
 
 export function Field({

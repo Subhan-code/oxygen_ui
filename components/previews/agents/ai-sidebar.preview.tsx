@@ -10,6 +10,11 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import {
+  AISidebar,
+  type SidebarResource,
+  type SidebarResourceMove,
+} from "@/components/agents/ai-sidebar";
+import {
   AnimatedSidebar,
   AnimatedSidebarContent,
   AnimatedSidebarGroup,
@@ -23,11 +28,6 @@ import {
   AnimatedSidebarRail,
   AnimatedSidebarTrigger,
 } from "@/components/motion/animated-sidebar";
-import {
-  AISidebar,
-  type SidebarResource,
-  type SidebarResourceMove,
-} from "@/components/agents/ai-sidebar";
 
 const resources: SidebarResource[] = [
   {

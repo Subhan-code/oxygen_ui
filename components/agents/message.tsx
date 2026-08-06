@@ -7,9 +7,9 @@ import {
   type ReactNode,
   useContext,
 } from "react";
+import { MessageSideContext } from "@/components/agents/message-context";
 import { EASE_OUT } from "@/lib/ease";
 import { cn } from "@/lib/utils";
-import { MessageSideContext } from "@/components/agents/message-context";
 
 export {
   MessageBubble,
@@ -17,8 +17,8 @@ export {
   MessageBubbleContent,
   MessageBubbleGroup,
 } from "@/components/agents/message-bubble";
-export { MessageScroller } from "@/components/agents/message-scroller";
 export type { MessageScrollerProps } from "@/components/agents/message-scroller";
+export { MessageScroller } from "@/components/agents/message-scroller";
 
 export type MessageFrom = "user" | "assistant";
 

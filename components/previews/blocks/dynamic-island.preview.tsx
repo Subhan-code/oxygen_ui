@@ -73,7 +73,7 @@ export function DynamicIslandPreview() {
               <span className="text-[10px] uppercase tracking-wider opacity-60">
                 Incoming call
               </span>
-              <span className="text-sm font-semibold">Saurabh</span>
+              <span className="text-sm font-semibold">Syed Subhan</span>
             </div>
             <div className="flex items-center gap-2">
               <button

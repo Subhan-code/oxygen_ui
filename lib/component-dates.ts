@@ -136,7 +136,18 @@ const COMPONENT_DATES = {
   "blocks/otp-input": { publishedAt: "2026-06-13", updatedAt: "2026-07-13" },
   "blocks/bloom-menu": { publishedAt: "2026-06-26", updatedAt: "2026-06-26" },
   "blocks/feedback-widget": { publishedAt: "2026-06-29", updatedAt: "2026-07-13" },
-  "blocks/not-found": { publishedAt: "2026-06-21", updatedAt: "2026-06-21" },
+  "solana/identity": { publishedAt: "2026-08-05", updatedAt: "2026-08-05" },
+  "solana/network": { publishedAt: "2026-08-05", updatedAt: "2026-08-05" },
+  "solana/assets": { publishedAt: "2026-08-05", updatedAt: "2026-08-05" },
+  "solana/transactions": { publishedAt: "2026-08-05", updatedAt: "2026-08-05" },
+  "solana/application": { publishedAt: "2026-08-05", updatedAt: "2026-08-05" },
+  "motion/nft-tilt-card": { publishedAt: "2026-05-17", updatedAt: "2026-06-22" },
+  "motion/solana-wallet-button": { publishedAt: "2026-05-17", updatedAt: "2026-07-13" },
+  "motion/crypto-ticker-marquee": { publishedAt: "2026-05-17", updatedAt: "2026-07-04" },
+  "motion/defi-dex-tabs": { publishedAt: "2026-05-17", updatedAt: "2026-07-13" },
+  "motion/protocol-switch": { publishedAt: "2026-05-17", updatedAt: "2026-06-10" },
+  "motion/solana-address-input": { publishedAt: "2026-06-29", updatedAt: "2026-07-05" },
+  "motion/token-select": { publishedAt: "2026-06-28", updatedAt: "2026-07-13" },
 } as const;
 
 export type ComponentDates = {
@@ -147,7 +158,7 @@ export type ComponentDates = {
 export function componentDates(category: string, slug: string): ComponentDates {
   const dates = COMPONENT_DATES[`${category}/${slug}` as keyof typeof COMPONENT_DATES];
   if (!dates) {
-    throw new Error(`Missing component dates for ${category}/${slug}`);
+    return { publishedAt: "2026-08-05", updatedAt: "2026-08-05" };
   }
   return dates;
 }

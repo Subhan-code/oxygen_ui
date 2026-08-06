@@ -1,15 +1,15 @@
 "use client";
 
+import { Check, Copy, Home, LayoutGrid, Mail } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Check, Copy, Home, LayoutGrid, Mail } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
-import { Dock, DockItem, DockSeparator } from "@/components/motion/dock";
+import { GithubIcon } from "@/components/app/icons";
 import { ActionSwapIcon } from "@/components/motion/action-swap";
+import { Dock, DockItem, DockSeparator } from "@/components/motion/dock";
 import { ThemeToggle } from "@/components/motion/theme-toggle";
 import { Tooltip } from "@/components/motion/tooltip";
-import { GithubIcon } from "@/components/app/icons";
 
 export function SiteDock() {
   const pathname = usePathname();
@@ -77,7 +77,7 @@ export function SiteDock() {
           </DockItem>
           <DockItem aria-label="Email">
             <Tooltip
-              content={emailCopied ? "Copied!" : "saurabh10102@gmail.com"}
+              content={emailCopied ? "Copied!" : "contact@oxygen-ui.dev"}
               side="top"
               wrapperClassName="h-full w-full items-center justify-center"
             >
@@ -88,7 +88,7 @@ export function SiteDock() {
                 onPointerEnter={() => setEmailHovered(true)}
                 onPointerLeave={() => setEmailHovered(false)}
                 onClick={() => {
-                  navigator.clipboard.writeText("saurabh10102@gmail.com");
+                  navigator.clipboard.writeText("contact@oxygen-ui.dev");
                   setEmailCopied(true);
                   setTimeout(() => setEmailCopied(false), 2000);
                 }}

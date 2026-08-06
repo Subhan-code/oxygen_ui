@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, type Transition, useInView, useReducedMotion } from "motion/react";
-import { useRef, type ElementType, type ReactNode } from "react";
+import { type ElementType, type ReactNode, useRef } from "react";
 import { EASE_OUT } from "@/lib/ease";
 import { cn } from "@/lib/utils";
 

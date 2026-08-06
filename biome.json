@@ -1,35 +1,40 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.4.16/schema.json",
-  "files": {
-    "includes": [
-      "**",
-      "!node_modules",
-      "!mcp",
-      "!.next",
-      "!build",
-      "!out",
-      "!coverage",
-      "!next-env.d.ts"
-    ]
-  },
-  "formatter": {
-    "enabled": false
-  },
-  "css": {
-    "parser": {
-      "tailwindDirectives": true
-    }
-  },
-  "linter": {
-    "enabled": true,
-    "rules": {
-      "recommended": true,
-      "complexity": {
-        "noImportantStyles": "off"
-      },
-      "security": {
-        "noDangerouslySetInnerHtml": "off"
-      }
-    }
-  }
+	"$schema": "https://biomejs.dev/schemas/2.5.7/schema.json",
+	"files": {
+		"includes": [
+			"**",
+			"!node_modules",
+			"!mcp",
+			"!.next",
+			"!build",
+			"!out",
+			"!coverage",
+			"!next-env.d.ts",
+			"!scratch",
+			"!temp-transitions"
+		]
+	},
+	"formatter": {
+		"enabled": false
+	},
+	"css": {
+		"parser": {
+			"tailwindDirectives": true
+		}
+	},
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"preset": "recommended",
+			"complexity": {
+				"noImportantStyles": "off"
+			},
+			"security": {
+				"noDangerouslySetInnerHtml": "off"
+			},
+			"a11y": {
+				"noSvgWithoutTitle": "off"
+			}
+		}
+	}
 }

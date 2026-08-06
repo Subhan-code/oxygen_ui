@@ -17,7 +17,7 @@ const PM_COMMANDS = {
 type PM = keyof typeof PM_COMMANDS;
 const PMS = Object.keys(PM_COMMANDS) as PM[];
 
-const REGISTRY_NAMESPACE = "@beui";
+const REGISTRY_NAMESPACE = "@oxygen-ui";
 const CYCLE_MS = 1800;
 
 const COMPONENT_SLUGS = registry.flatMap((cat) =>

@@ -11,8 +11,8 @@ import {
   useRef,
   useState,
 } from "react";
-import { ThinkingShimmer } from "@/components/agents/loading-states/thinking-shimmer";
 import { AgentDisclosure } from "@/components/agents/agent-disclosure";
+import { ThinkingShimmer } from "@/components/agents/loading-states/thinking-shimmer";
 import {
   EASE_OUT,
   SPRING_LAYOUT,

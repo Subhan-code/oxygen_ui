@@ -6,15 +6,15 @@ import {
   waitFor,
 } from "@testing-library/react";
 import {
-  MorphPopover,
-  MorphPopoverContent,
-  MorphPopoverTrigger,
-} from "@/components/motion/popover-morph";
-import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from "@/components/motion/popover";
+import {
+  MorphPopover,
+  MorphPopoverContent,
+  MorphPopoverTrigger,
+} from "@/components/motion/popover-morph";
 
 afterEach(cleanup);
 

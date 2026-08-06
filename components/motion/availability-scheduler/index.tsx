@@ -5,12 +5,12 @@ import { useCallback, useId, useMemo, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import { DayRow } from "./day-row";
 import {
+  buildOptions,
   type DayAvailability,
   type DayKey,
+  defaultWeek,
   WEEKDAYS,
   type WeekAvailability,
-  buildOptions,
-  defaultWeek,
 } from "./types";
 
 export type {

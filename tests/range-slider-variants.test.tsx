@@ -1,13 +1,12 @@
 import { afterEach, describe, expect, mock, test } from "bun:test";
 import { cleanup, fireEvent, render } from "@testing-library/react";
 import type { ReactElement } from "react";
-
-import { type SliderOptions, snapSliderValue } from "@/lib/hooks/use-slider";
 import { RangeSlider } from "@/components/motion/range-slider";
 import { BubbleSlider } from "@/components/motion/range-slider-bubble";
 import { FluidSlider } from "@/components/motion/range-slider-fluid";
 import { RulerSlider } from "@/components/motion/range-slider-ruler";
 import { WaveSlider } from "@/components/motion/range-slider-wave";
+import { type SliderOptions, snapSliderValue } from "@/lib/hooks/use-slider";
 
 afterEach(cleanup);
 

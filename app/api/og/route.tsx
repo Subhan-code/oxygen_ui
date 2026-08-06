@@ -1,8 +1,8 @@
 import { ImageResponse } from "next/og";
+import { OG_SIZE, ogImage } from "@/lib/og";
 import { getOgAssets } from "@/lib/og-assets";
 import { getOgFonts } from "@/lib/og-fonts";
 import { allComponents, findCategory } from "@/lib/registry";
-import { OG_SIZE, ogImage } from "@/lib/og";
 import { clampText } from "@/lib/seo";
 
 // The card art has room for roughly this much body text before it overflows.

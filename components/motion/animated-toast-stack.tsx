@@ -6,23 +6,23 @@ import {
   Check,
   Info,
   LoaderCircle,
-  X,
   type LucideIcon,
+  X,
 } from "lucide-react";
 import {
   AnimatePresence,
   motion,
-  useReducedMotion,
   type Transition,
+  useReducedMotion,
 } from "motion/react";
 import {
   memo,
+  type ReactNode,
   useCallback,
   useEffect,
   useMemo,
   useRef,
   useState,
-  type ReactNode,
 } from "react";
 import { createPortal } from "react-dom";
 import { EASE_OUT } from "@/lib/ease";

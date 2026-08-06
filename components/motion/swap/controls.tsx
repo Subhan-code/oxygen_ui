@@ -1,12 +1,12 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { ArrowDownUp, Check, ChevronDown, Send, X } from "lucide-react";
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { useEffect, useRef } from "react";
 import { SPRING_PRESS } from "@/lib/ease";
 import { cn } from "@/lib/utils";
-import type { Token } from "./types";
 import { EASE } from "./constants";
+import type { Token } from "./types";
 import { isValidAddress, truncateAddress } from "./utils";
 
 export function FlipButton({

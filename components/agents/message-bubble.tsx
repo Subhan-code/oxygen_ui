@@ -7,8 +7,8 @@ import {
   useReducedMotion,
 } from "motion/react";
 import {
-  cloneElement,
   type ComponentPropsWithRef,
+  cloneElement,
   createContext,
   type ReactElement,
   type ReactNode,
@@ -18,13 +18,13 @@ import {
   useId,
   useState,
 } from "react";
+import { MessageSideContext } from "@/components/agents/message-context";
 import {
   EASE_OUT,
   SPRING_LAYOUT,
   SPRING_SWAP,
 } from "@/lib/ease";
 import { cn } from "@/lib/utils";
-import { MessageSideContext } from "@/components/agents/message-context";
 
 export type MessageBubbleVariant =
   | "solid"

@@ -44,3 +44,11 @@ next-env.d.ts
 # editor / local agent config
 .claude/
 .env
+
+# local-only working dirs (not part of the project)
+/scratch/
+/skills/
+/temp-transitions/
+
+# npm lockfile not needed (project uses bun.lock)
+package-lock.json

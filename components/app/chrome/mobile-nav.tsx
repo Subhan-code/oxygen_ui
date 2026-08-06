@@ -41,6 +41,18 @@ export function MobileNav() {
         <div className="flex flex-col gap-5 pt-2">
           <nav className="flex flex-wrap gap-1">
             <Link
+              href="/components/solana"
+              onClick={() => setOpen(false)}
+              className={cn(
+                "rounded-md px-3 py-1.5 text-sm font-medium transition-colors",
+                pathname.startsWith("/components/solana")
+                  ? "text-foreground font-semibold"
+                  : "text-muted-foreground hover:text-foreground",
+              )}
+            >
+              Solana Primitives
+            </Link>
+            <Link
               href="/components/motion"
               onClick={() => setOpen(false)}
               className={cn(
@@ -65,40 +77,16 @@ export function MobileNav() {
               Blocks
             </Link>
             <Link
-              href="/components/agents"
+              href="/docs/motion-patterns"
               onClick={() => setOpen(false)}
               className={cn(
                 "rounded-md px-3 py-1.5 text-sm transition-colors",
-                pathname.startsWith("/components/agents")
+                pathname.startsWith("/docs")
                   ? "text-foreground"
                   : "text-muted-foreground hover:text-foreground",
               )}
             >
-              Agents
-            </Link>
-            <Link
-              href="/playground"
-              onClick={() => setOpen(false)}
-              className={cn(
-                "rounded-md px-3 py-1.5 text-sm transition-colors",
-                pathname.startsWith("/playground")
-                  ? "text-foreground"
-                  : "text-muted-foreground hover:text-foreground",
-              )}
-            >
-              Playground
-            </Link>
-            <Link
-              href="/sponsors"
-              onClick={() => setOpen(false)}
-              className={cn(
-                "rounded-md px-3 py-1.5 text-sm transition-colors",
-                pathname.startsWith("/sponsors")
-                  ? "text-foreground"
-                  : "text-muted-foreground hover:text-foreground",
-              )}
-            >
-              Sponsors
+              Docs
             </Link>
           </nav>
           <SidebarNav onNavigate={() => setOpen(false)} />

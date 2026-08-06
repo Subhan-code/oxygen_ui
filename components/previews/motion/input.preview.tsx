@@ -1,52 +1,29 @@
 "use client";
 
-import { Eye, EyeOff, Mail, Search } from "lucide-react";
 import { useState } from "react";
 import { Input } from "@/components/motion/input";
+import { SolanaIcon } from "@/components/solana/icons";
 
 export function InputPreview() {
-  const [email, setEmail] = useState("");
-  const [pass, setPass] = useState("hunter2");
-  const [query, setQuery] = useState("Ada");
-  const [show, setShow] = useState(false);
-
-  const emailError =
-    email.length > 0 && !email.includes("@") ? "Enter a valid email address." : undefined;
+  const [addr, setAddr] = useState("7xKXtg2CW87d97TXJSDpb1D5v52utAUKaBksSgAsU");
+  const [amount, setAmount] = useState("10.5");
 
   return (
-    <div className="flex w-full max-w-xs flex-col gap-5">
+    <div className="flex flex-col gap-4 p-8 min-h-[300px] w-full max-w-md mx-auto justify-center">
       <Input
-        label="Email"
-        type="email"
-        placeholder="you@example.com"
-        leftIcon={<Mail />}
-        value={email}
-        onChange={setEmail}
-        error={emailError}
+        label="Recipient Public Key (.sol or Base58)"
+        value={addr}
+        onChange={setAddr}
+        placeholder="Paste 32-44 char Solana address"
       />
       <Input
-        label="Password"
-        type={show ? "text" : "password"}
-        value={pass}
-        onChange={setPass}
-        rightIcon={
-          <button
-            type="button"
-            onClick={() => setShow((s) => !s)}
-            aria-label={show ? "Hide password" : "Show password"}
-            className="pointer-events-auto"
-          >
-            {show ? <EyeOff /> : <Eye />}
-          </button>
-        }
-      />
-      <Input
-        label="Search"
-        leftIcon={<Search />}
-        value={query}
-        onChange={setQuery}
-        success={query.length > 1}
+        label="SOL Amount to Transfer"
+        value={amount}
+        onChange={setAmount}
+        leftIcon={<SolanaIcon size={18} />}
+        placeholder="0.00"
       />
     </div>
   );
 }
+export default InputPreview;

@@ -5,8 +5,8 @@ import { useReducedMotion } from "motion/react";
 import { useEffect, useState } from "react";
 import {
   Citation,
-  Citations,
   type CitationItem,
+  Citations,
 } from "@/components/agents/citations";
 
 const CITATION_ITEMS: CitationItem[] = [

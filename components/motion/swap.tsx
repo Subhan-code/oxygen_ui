@@ -1,19 +1,20 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
 import { Settings } from "lucide-react";
 import { useReducedMotion } from "motion/react";
+import { useEffect, useMemo, useState } from "react";
 import { cn } from "@/lib/utils";
-import { CHAINS, TOKENS } from "./swap/data";
 import { ActionButton, DestinationRow, FlipButton } from "./swap/controls";
+import { CHAINS, TOKENS } from "./swap/data";
 import { Field } from "./swap/field";
 import { QuoteRow } from "./swap/quote-row";
 import { TokenPicker } from "./swap/token-picker";
 import type { Chain, Token, TokenSide } from "./swap/types";
 import { formatAmount } from "./swap/utils";
 
-export type { Chain, Token } from "./swap/types";
 export { SWAP_DRAWER_EASE } from "./swap/constants";
+export type { Chain, Token } from "./swap/types";
+export { MultiChainSwap as Swap };
 
 export interface MultiChainSwapProps {
   chains?: Chain[];

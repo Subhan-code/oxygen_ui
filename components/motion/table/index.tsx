@@ -14,7 +14,7 @@ import { useColumnReorder } from "./use-column-reorder";
 import { useColumnResize } from "./use-column-resize";
 import { useColumnSort } from "./use-column-sort";
 import { useRowSelection } from "./use-row-selection";
-import { CHECKBOX_WIDTH, alignText, readCell } from "./utils";
+import { alignText, CHECKBOX_WIDTH, readCell } from "./utils";
 
 export type {
   SortDirection,

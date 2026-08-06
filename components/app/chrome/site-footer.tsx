@@ -2,37 +2,36 @@ import Link from "next/link";
 import { GithubIcon } from "@/components/app/icons";
 import { registry } from "@/lib/registry";
 
-// The catalog keeps growing — the footer shows only the newest few per column.
-const FOOTER_LIMIT = 8;
-
-const allMotion = registry.find((c) => c.slug === "motion")?.components ?? [];
-const allBlocks = registry.find((c) => c.slug === "blocks")?.components ?? [];
-const motionComponents = allMotion.slice(-FOOTER_LIMIT).reverse();
-const blockComponents = allBlocks.slice(-FOOTER_LIMIT).reverse();
+const FOOTER_LIMIT = 5;
 
 export function SiteFooter() {
+  const solanaCat = registry.find((c) => c.slug === "solana");
+  const agentsCat = registry.find((c) => c.slug === "agents");
+  const motionCat = registry.find((c) => c.slug === "motion");
+  const blocksCat = registry.find((c) => c.slug === "blocks");
+
+  const solanaList = (solanaCat?.components ?? []).slice(0, FOOTER_LIMIT);
+  const agentsList = (agentsCat?.components ?? []).slice(0, FOOTER_LIMIT);
+  const motionList = (motionCat?.components ?? []).slice(0, FOOTER_LIMIT);
+  const blocksList = (blocksCat?.components ?? []).slice(0, FOOTER_LIMIT);
+
   return (
-    <footer className="border-t border-border px-4 pt-14 pb-10">
+    <footer className="w-full border-t border-black/5 bg-background/50 px-4 pt-16 pb-12 backdrop-blur-xl dark:border-white/10">
       <div className="mx-auto max-w-7xl">
-        {/* Main grid */}
-        <div className="grid grid-cols-2 gap-10 md:grid-cols-[1.5fr_1fr_1fr_1fr]">
+        <div className="grid grid-cols-2 gap-8 md:grid-cols-5 lg:grid-cols-6">
           {/* Brand */}
-          <div className="col-span-2 md:col-span-1">
-            <p className="font-display text-lg font-medium text-foreground">beUI</p>
-            <p className="mt-2 max-w-[220px] text-sm leading-6 text-muted-foreground">
-              Animated components for React and Next.js. Copy-paste via the
-              shadcn registry.
-            </p>
-            <p className="mt-5 text-xs text-muted-foreground">
-              Created by{" "}
-              <Link
-                href="https://x.com/saurra3h"
-                target="_blank"
-                rel="noreferrer noopener"
-                className="font-medium text-foreground underline-offset-2 hover:underline"
-              >
-                Saurabh
-              </Link>
+          <div className="col-span-2 md:col-span-2 lg:col-span-2">
+            <Link
+              href="/"
+              className="flex items-center gap-2.5 text-base font-bold tracking-tight text-foreground"
+            >
+              <div className="flex h-7 w-7 items-center justify-center rounded-xl bg-accent text-accent-fg font-mono font-black text-xs shadow-xs">
+                O2
+              </div>
+              <span className="font-display text-lg font-semibold">Oxygen UI</span>
+            </Link>
+            <p className="mt-3 max-w-[280px] text-xs leading-relaxed text-muted-foreground">
+              Animated React UI components and AI agent primitives. Copy-paste source code via the shadcn CLI registry.
             </p>
             <div className="mt-5 flex items-center gap-3">
               <Link
@@ -40,7 +39,7 @@ export function SiteFooter() {
                 target="_blank"
                 rel="noreferrer noopener"
                 aria-label="GitHub"
-                className="text-muted-foreground transition-colors hover:text-foreground"
+                className="rounded-full p-2 text-muted-foreground transition-colors hover:bg-black/5 hover:text-foreground dark:hover:bg-white/10"
               >
                 <GithubIcon className="h-4 w-4" />
               </Link>
@@ -49,7 +48,7 @@ export function SiteFooter() {
                 target="_blank"
                 rel="noreferrer noopener"
                 aria-label="X / Twitter"
-                className="text-muted-foreground transition-colors hover:text-foreground"
+                className="rounded-full p-2 text-muted-foreground transition-colors hover:bg-black/5 hover:text-foreground dark:hover:bg-white/10"
               >
                 <svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor" aria-hidden="true">
                   <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
@@ -58,17 +57,71 @@ export function SiteFooter() {
             </div>
           </div>
 
-          {/* Components */}
+          {/* Solana */}
           <div>
-            <p className="mb-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+            <p className="mb-3.5 text-[0.7rem] font-bold uppercase tracking-widest text-muted-foreground/80">
+              Solana
+            </p>
+            <ul className="space-y-2 text-xs">
+              {solanaList.map((c) => (
+                <li key={c.slug}>
+                  <Link
+                    href={`/components/solana/${c.slug}`}
+                    className="text-muted-foreground transition-colors hover:text-foreground"
+                  >
+                    {c.name}
+                  </Link>
+                </li>
+              ))}
+              <li>
+                <Link
+                  href="/components/solana"
+                  className="font-medium text-accent transition-colors hover:text-accent/80"
+                >
+                  View all ({solanaCat?.components.length ?? 0})
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* AI Agents */}
+          <div>
+            <p className="mb-3.5 text-[0.7rem] font-bold uppercase tracking-widest text-muted-foreground/80">
+              AI Agents
+            </p>
+            <ul className="space-y-2 text-xs">
+              {agentsList.map((c) => (
+                <li key={c.slug}>
+                  <Link
+                    href={`/components/agents/${c.slug}`}
+                    className="text-muted-foreground transition-colors hover:text-foreground"
+                  >
+                    {c.name}
+                  </Link>
+                </li>
+              ))}
+              <li>
+                <Link
+                  href="/components/agents"
+                  className="font-medium text-accent transition-colors hover:text-accent/80"
+                >
+                  View all ({agentsCat?.components.length ?? 0})
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Motion Components */}
+          <div>
+            <p className="mb-3.5 text-[0.7rem] font-bold uppercase tracking-widest text-muted-foreground/80">
               Components
             </p>
-            <ul className="space-y-2.5">
-              {motionComponents.map((c) => (
+            <ul className="space-y-2 text-xs">
+              {motionList.map((c) => (
                 <li key={c.slug}>
                   <Link
                     href={`/components/motion/${c.slug}`}
-                    className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                    className="text-muted-foreground transition-colors hover:text-foreground"
                   >
                     {c.name}
                   </Link>
@@ -77,9 +130,9 @@ export function SiteFooter() {
               <li>
                 <Link
                   href="/components/motion"
-                  className="text-sm font-medium text-foreground transition-colors hover:text-muted-foreground"
+                  className="font-medium text-accent transition-colors hover:text-accent/80"
                 >
-                  View all ({allMotion.length})
+                  View all ({motionCat?.components.length ?? 0})
                 </Link>
               </li>
             </ul>
@@ -87,15 +140,15 @@ export function SiteFooter() {
 
           {/* Blocks */}
           <div>
-            <p className="mb-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+            <p className="mb-3.5 text-[0.7rem] font-bold uppercase tracking-widest text-muted-foreground/80">
               Blocks
             </p>
-            <ul className="space-y-2.5">
-              {blockComponents.map((c) => (
+            <ul className="space-y-2 text-xs">
+              {blocksList.map((c) => (
                 <li key={c.slug}>
                   <Link
                     href={`/components/blocks/${c.slug}`}
-                    className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                    className="text-muted-foreground transition-colors hover:text-foreground"
                   >
                     {c.name}
                   </Link>
@@ -104,82 +157,9 @@ export function SiteFooter() {
               <li>
                 <Link
                   href="/components/blocks"
-                  className="text-sm font-medium text-foreground transition-colors hover:text-muted-foreground"
+                  className="font-medium text-accent transition-colors hover:text-accent/80"
                 >
-                  View all ({allBlocks.length})
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Links */}
-          <div>
-            <p className="mb-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-              Links
-            </p>
-            <ul className="space-y-2.5">
-              <li>
-                <Link
-                  href="https://pro.beui.dev/?utm_source=beui&utm_medium=referral&utm_campaign=free_to_pro&utm_content=footer"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  className="text-sm font-medium text-accent transition-colors hover:text-accent/80"
-                >
-                  beUI Pro
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="https://usemarkd.app"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  Markd
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/components/motion"
-                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  Browse all
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="https://github.com/starc007/ui-components"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  GitHub
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/sponsors"
-                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  Sponsor
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="https://x.com/saurra3h"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  X / Twitter
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/llms.txt"
-                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  llms.txt
+                  View all ({blocksCat?.components.length ?? 0})
                 </Link>
               </li>
             </ul>
@@ -187,10 +167,25 @@ export function SiteFooter() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-14 border-t border-border pt-6">
-          <p className="text-xs text-muted-foreground">© 2026 beUI. MIT License.</p>
+        <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-black/5 pt-8 sm:flex-row dark:border-white/10">
+          <p className="text-xs text-muted-foreground">
+            © 2026 Oxygen UI / beUI. MIT License.
+          </p>
+          <div className="flex items-center gap-6 text-xs text-muted-foreground">
+            <Link href="https://github.com/starc007/ui-components" target="_blank" className="hover:text-foreground">
+              GitHub
+            </Link>
+            <Link href="/docs/motion-patterns" className="hover:text-foreground">
+              Docs
+            </Link>
+            <Link href="/llms.txt" className="hover:text-foreground">
+              llms.txt
+            </Link>
+          </div>
         </div>
       </div>
     </footer>
   );
 }
+
+export default SiteFooter;

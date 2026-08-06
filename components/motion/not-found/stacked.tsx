@@ -6,8 +6,8 @@ import { useHoverCapable } from "@/lib/hooks/use-hover-capable";
 import {
   NOT_FOUND_DEFAULTS,
   NotFoundActions,
-  NotFoundStage,
   type NotFoundProps,
+  NotFoundStage,
 } from "./shared";
 
 const CARD =

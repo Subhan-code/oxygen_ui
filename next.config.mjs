@@ -84,6 +84,12 @@ const LEGACY_COMPONENT_REDIRECTS = [
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  experimental: {
+    optimizePackageImports: ["lucide-react", "motion/react"],
+  },
+  compiler: {
+    removeConsole: process.env.NODE_ENV === "production" ? { exclude: ["error"] } : false,
+  },
   images: {
     remotePatterns: [
       {

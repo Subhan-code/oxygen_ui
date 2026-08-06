@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import Link from "next/link";
 import { CodeBlock } from "@/components/app/docs/code-block";
 import { buildEntry } from "@/lib/registry-server";
 

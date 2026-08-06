@@ -3,15 +3,15 @@ import { act, type ReactElement } from "react";
 import { hydrateRoot } from "react-dom/client";
 import { renderToString } from "react-dom/server";
 import {
-  MorphPopover,
-  MorphPopoverContent,
-  MorphPopoverTrigger,
-} from "@/components/motion/popover-morph";
-import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from "@/components/motion/popover";
+import {
+  MorphPopover,
+  MorphPopoverContent,
+  MorphPopoverTrigger,
+} from "@/components/motion/popover-morph";
 
 const mountedRoots: Array<ReturnType<typeof hydrateRoot>> = [];
 const mountedContainers: HTMLDivElement[] = [];

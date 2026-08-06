@@ -6,14 +6,14 @@ import {
   Circle,
   Info,
   LoaderCircle,
-  X,
   type LucideIcon,
+  X,
 } from "lucide-react";
 import {
   AnimatePresence,
+  type HTMLMotionProps,
   motion,
   useReducedMotion,
-  type HTMLMotionProps,
   type Variants,
 } from "motion/react";
 import type { ReactNode } from "react";

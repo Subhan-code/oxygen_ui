@@ -4,11 +4,11 @@ import { useVirtualizer } from "@tanstack/react-virtual";
 import { AlertCircle, Inbox } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
 import {
+  type MutableRefObject,
+  type ReactNode,
   useEffect,
   useRef,
   useState,
-  type MutableRefObject,
-  type ReactNode,
 } from "react";
 import { EASE_OUT, SPRING_PANEL } from "@/lib/ease";
 import { cn } from "@/lib/utils";

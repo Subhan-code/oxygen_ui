@@ -17,12 +17,12 @@ import {
   useRef,
   useState,
 } from "react";
+import { AgentDisclosure } from "@/components/agents/agent-disclosure";
 import {
   type CitationItem,
   CitationList,
   CitationStack,
 } from "@/components/agents/citations";
-import { AgentDisclosure } from "@/components/agents/agent-disclosure";
 import { EASE_OUT, SPRING_PRESS, SPRING_SWAP } from "@/lib/ease";
 import { cn } from "@/lib/utils";
 

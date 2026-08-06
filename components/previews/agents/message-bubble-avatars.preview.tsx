@@ -4,10 +4,6 @@ import { Bot, RotateCcw, User } from "lucide-react";
 import { AnimatePresence } from "motion/react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import {
-  MessageBubble,
-  MessageBubbleContent,
-} from "@/components/agents/message-bubble";
-import {
   Message,
   MessageAvatar,
   MessageContent,
@@ -15,6 +11,10 @@ import {
   MessageGroup,
   MessageHeader,
 } from "@/components/agents/message";
+import {
+  MessageBubble,
+  MessageBubbleContent,
+} from "@/components/agents/message-bubble";
 import { StreamingResponse } from "@/components/agents/streaming-response";
 
 export function MessageBubbleAvatarsPreview() {

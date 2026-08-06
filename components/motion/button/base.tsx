@@ -2,9 +2,9 @@
 
 import {
   AnimatePresence,
+  type HTMLMotionProps,
   motion,
   useReducedMotion,
-  type HTMLMotionProps,
 } from "motion/react";
 import {
   forwardRef,
@@ -15,8 +15,8 @@ import {
   useState,
 } from "react";
 import { EASE_OUT, SPRING_PRESS } from "@/lib/ease";
-import { cn } from "@/lib/utils";
 import { useHoverCapable } from "@/lib/hooks/use-hover-capable";
+import { cn } from "@/lib/utils";
 
 export type ButtonVariant = "primary" | "secondary" | "ghost" | "outline";
 export type ButtonSize = "sm" | "md" | "lg" | "icon";
@@ -99,7 +99,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         transition={SPRING_PRESS}
         onPointerDown={handlePointerDown}
         className={cn(
-          "inline-flex items-center justify-center font-medium select-none",
+          "inline-flex items-center justify-center font-medium select-none outline-none",
+          "focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
           "transition-colors",
           "disabled:pointer-events-none disabled:opacity-50",
           ripple && "relative overflow-hidden",

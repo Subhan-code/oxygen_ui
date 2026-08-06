@@ -1,7 +1,7 @@
 "use client";
 
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
-import { useId, useState, type ReactNode } from "react";
+import { type ReactNode, useId, useState } from "react";
 import { EASE_OUT, SPRING_LAYOUT } from "@/lib/ease";
 import { useHoverCapable } from "@/lib/hooks/use-hover-capable";
 import { cn } from "@/lib/utils";

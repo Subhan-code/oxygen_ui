@@ -6,8 +6,24 @@ export const EASE_OUT = [0.16, 1, 0.3, 1] as const;
 export const EASE_IN_OUT = [0.77, 0, 0.175, 1] as const;
 export const EASE_DRAWER = [0.32, 0.72, 0, 1] as const;
 
+/** transitions.dev shared motion token curves */
+export const EASE_SMOOTH_OUT = [0.22, 1, 0.36, 1] as const;
+export const EASE_BOUNCE = [0.34, 1.36, 0.64, 1] as const;
+export const EASE_BOUNCE_STRONG = [0.34, 3.85, 0.64, 1] as const;
+
 /** CSS string form of EASE_OUT for inline style transitions. */
 export const EASE_OUT_CSS = "cubic-bezier(0.16, 1, 0.3, 1)";
+export const EASE_SMOOTH_OUT_CSS = "cubic-bezier(0.22, 1, 0.36, 1)";
+export const EASE_BOUNCE_CSS = "cubic-bezier(0.34, 1.36, 0.64, 1)";
+
+/** Motion token duration scale (in ms) */
+export const DURATION_STAGGER = 40;
+export const DURATION_MICRO = 80;
+export const DURATION_QUICK = 150;
+export const DURATION_FAST = 250;
+export const DURATION_MEDIUM = 350;
+export const DURATION_SLOW = 400;
+export const DURATION_VERY_SLOW = 500;
 
 /** Press feedback on buttons and other tappable surfaces. */
 export const SPRING_PRESS = {

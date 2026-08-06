@@ -2,8 +2,8 @@ import { afterEach, describe, expect, test } from "bun:test";
 import { cleanup, fireEvent, render, waitFor } from "@testing-library/react";
 import {
   KnockoutWheel,
-  type Round,
   ROUNDS,
+  type Round,
 } from "@/components/motion/knockout-wheel";
 
 afterEach(cleanup);

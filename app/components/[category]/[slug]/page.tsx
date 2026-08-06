@@ -1,16 +1,15 @@
-import type { Metadata } from "next";
-import { notFound } from "next/navigation";
-import Link from "next/link";
 import { ChevronRight } from "lucide-react";
-import {
-  findCategory,
-  findComponent,
-  registry,
-  type ComponentExample,
-} from "@/lib/registry";
+import type { Metadata } from "next";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { JsonLd } from "@/components/app/analytics/json-ld";
 import { CodeBlock } from "@/components/app/docs/code-block";
+import { ComponentCard } from "@/components/app/docs/component-card";
+import { ComponentGuide } from "@/components/app/docs/component-guide";
+import { CopyPage } from "@/components/app/docs/copy-page";
 import { InstallBlock } from "@/components/app/docs/install-block";
 import { KeepInMind } from "@/components/app/docs/keep-in-mind";
+import { NewBadge } from "@/components/app/docs/new-badge";
 import { PageNav, type PageNavItem } from "@/components/app/docs/page-nav";
 import { PropsTable } from "@/components/app/docs/props-table";
 import {
@@ -19,16 +18,15 @@ import {
   TabsList,
   TabsTrigger,
 } from "@/components/motion/tabs";
-import { NewBadge } from "@/components/app/docs/new-badge";
-import { ComponentCard } from "@/components/app/docs/component-card";
-import { ComponentGuide } from "@/components/app/docs/component-guide";
-import { CopyPage } from "@/components/app/docs/copy-page";
-import { JsonLd } from "@/components/app/analytics/json-ld";
 import { getPreview, previews } from "@/components/previews";
-import { pageUrlFor, withSignature } from "@/lib/signature";
-import { readSourceFile } from "@/lib/source-files";
-import { getComponentProps } from "@/lib/props-extractor";
 import { componentDates } from "@/lib/component-dates";
+import { getComponentProps } from "@/lib/props-extractor";
+import {
+  type ComponentExample,
+  findCategory,
+  findComponent,
+  registry,
+} from "@/lib/registry";
 import {
   breadcrumbJsonLd,
   componentJsonLd,
@@ -36,6 +34,8 @@ import {
   componentMetaDescription,
   relatedComponents,
 } from "@/lib/seo";
+import { pageUrlFor, withSignature } from "@/lib/signature";
+import { readSourceFile } from "@/lib/source-files";
 
 export const dynamic = "force-static";
 export const dynamicParams = false;

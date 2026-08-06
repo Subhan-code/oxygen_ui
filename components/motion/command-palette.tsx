@@ -1,7 +1,7 @@
 "use client";
 
+import { type LucideIcon, Search } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
-import { Search, type LucideIcon } from "lucide-react";
 import {
   type ReactNode,
   useCallback,

@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { findCategory, registry } from "@/lib/registry";
-import { ComponentCard } from "@/components/app/docs/component-card";
 import { JsonLd } from "@/components/app/analytics/json-ld";
+import { ComponentCard } from "@/components/app/docs/component-card";
 import { isComponentNew } from "@/lib/component-status";
+import { findCategory, registry } from "@/lib/registry";
 import { breadcrumbJsonLd, categoryJsonLd } from "@/lib/seo";
 
 const categoryContent = {

@@ -3,16 +3,16 @@
 import {
   animate,
   motion,
+  type PanInfo,
   useMotionValue,
   useReducedMotion,
-  type PanInfo,
 } from "motion/react";
 import {
+  type ReactNode,
   useCallback,
   useEffect,
   useRef,
   useState,
-  type ReactNode,
 } from "react";
 import { cn } from "@/lib/utils";
 

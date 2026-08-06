@@ -1,18 +1,18 @@
 "use client";
 
-import {
-  motion,
-  useReducedMotion,
-  type Transition,
-} from "motion/react";
 import { ChevronDown } from "lucide-react";
 import {
+  motion,
+  type Transition,
+  useReducedMotion,
+} from "motion/react";
+import {
+  type ReactNode,
   useCallback,
   useId,
   useLayoutEffect,
   useRef,
   useState,
-  type ReactNode,
 } from "react";
 import { EASE_OUT } from "@/lib/ease";
 import { cn } from "@/lib/utils";

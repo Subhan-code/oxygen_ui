@@ -1,6 +1,6 @@
 import path from "node:path";
-import ts from "typescript";
 import * as docgen from "react-docgen-typescript";
+import ts from "typescript";
 import { registry } from "@/lib/registry";
 
 const PROJECT_ROOT = process.cwd();

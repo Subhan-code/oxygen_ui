@@ -1,8 +1,7 @@
-import { ArrowUpRight, Mail } from "lucide-react";
+import { Mail } from "lucide-react";
 import { PressLink } from "@/components/app/press-link";
 
-const CAL_URL = "https://cal.com/saurra3h/30min";
-const EMAIL = "saurabh10102@gmail.com";
+const EMAIL = "contact@oxygen-ui.dev";
 
 export function WorkCta() {
   return (
@@ -20,23 +19,13 @@ export function WorkCta() {
           call or drop a line, whichever's easier.
         </p>
 
-        <div className="mt-8 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center">
-          <PressLink
-            href={CAL_URL}
-            target="_blank"
-            rel="noreferrer noopener"
-            className="group inline-flex items-center justify-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
-          >
-            Book a call
-            <ArrowUpRight className="h-4 w-4 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-          </PressLink>
-
+        <div className="mt-8 flex flex-col items-center justify-center gap-3">
           <PressLink
             href={`mailto:${EMAIL}`}
-            className="group inline-flex items-center justify-center gap-2 rounded-full border border-border bg-background px-7 py-3.5 text-sm font-semibold text-foreground transition-colors hover:border-border-strong hover:bg-muted"
+            className="group inline-flex items-center justify-center gap-2 rounded-full border border-border bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
           >
             <Mail className="h-4 w-4 transition-transform duration-200 group-hover:-translate-y-0.5" />
-            Email me
+            Contact Syed Subhan
           </PressLink>
         </div>
       </div>

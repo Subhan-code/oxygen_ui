@@ -1,18 +1,14 @@
 "use client";
 
-import { ArrowUpRight, SwatchBook } from "lucide-react";
 import { useMotionValueEvent, useScroll } from "motion/react";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { GithubIcon } from "@/components/app/icons";
 import { MobileNav } from "@/components/app/chrome/mobile-nav";
-import { usePreferences } from "@/components/app/preferences/preferences-provider";
-import { PressLink } from "@/components/app/press-link";
-import { RainbowCta } from "@/components/app/rainbow-cta";
 import { SiteSearch } from "@/components/app/chrome/site-search";
-import { Tooltip } from "@/components/motion/tooltip";
+import { GithubIcon } from "@/components/app/icons";
+import { PressLink } from "@/components/app/press-link";
+import { ThemeToggle } from "@/components/motion/theme-toggle";
 import { cn } from "@/lib/utils";
 
 function formatStarCount(count: number) {
@@ -30,15 +26,11 @@ export function SiteHeader({
 }) {
   const { scrollY } = useScroll();
   const [scrolled, setScrolled] = useState(false);
-  const { setPanelOpen } = usePreferences();
   const pathname = usePathname();
+  const isSolana = pathname.startsWith("/components/solana");
   const isComponents = pathname.startsWith("/components/motion");
   const isBlocks = pathname.startsWith("/components/blocks");
-  const isAgents = pathname.startsWith("/components/agents");
   const isComponentsRoute = pathname.startsWith("/components");
-  const isPlayground = pathname.startsWith("/playground");
-  const isSponsors = pathname.startsWith("/sponsors");
-  const isHome = pathname === "/";
   const formattedStarCount =
     typeof githubStarCount === "number"
       ? formatStarCount(githubStarCount)
@@ -69,23 +61,29 @@ export function SiteHeader({
           <MobileNav />
           <Link
             href="/"
-            className="group flex items-center gap-2.5 text-sm font-semibold tracking-tight text-foreground"
+            className="group flex items-center gap-2.5 text-sm font-bold tracking-tight text-foreground"
           >
-            <Image
-              src="/beui-mark.png"
-              alt=""
-              aria-hidden="true"
-              width={24}
-              height={24}
-              className="h-6 w-6 rounded-lg"
-            />
-            <span>beUI</span>
+            <div className="flex h-6 w-6 items-center justify-center rounded-lg bg-accent text-accent-fg font-mono font-black text-xs shadow-xs">
+              O2
+            </div>
+            <span>Oxygen UI</span>
           </Link>
           <nav className="hidden items-center gap-0.5 md:flex">
             <Link
+              href="/components/solana"
+              className={cn(
+                "rounded-md px-3 py-1.5 text-sm transition-colors font-medium outline-none focus-visible:ring-2 focus-visible:ring-ring",
+                isSolana
+                  ? "text-foreground font-semibold"
+                  : "text-muted-foreground hover:text-foreground",
+              )}
+            >
+              Solana Primitives
+            </Link>
+            <Link
               href="/components/motion"
               className={cn(
-                "rounded-md px-3 py-1.5 text-sm transition-colors",
+                "rounded-md px-3 py-1.5 text-sm transition-colors outline-none focus-visible:ring-2 focus-visible:ring-ring",
                 isComponents
                   ? "text-foreground"
                   : "text-muted-foreground hover:text-foreground",
@@ -96,7 +94,7 @@ export function SiteHeader({
             <Link
               href="/components/blocks"
               className={cn(
-                "rounded-md px-3 py-1.5 text-sm transition-colors",
+                "rounded-md px-3 py-1.5 text-sm transition-colors outline-none focus-visible:ring-2 focus-visible:ring-ring",
                 isBlocks
                   ? "text-foreground"
                   : "text-muted-foreground hover:text-foreground",
@@ -105,55 +103,21 @@ export function SiteHeader({
               Blocks
             </Link>
             <Link
-              href="/components/agents"
+              href="/docs/motion-patterns"
               className={cn(
-                "rounded-md px-3 py-1.5 text-sm transition-colors",
-                isAgents
+                "rounded-md px-3 py-1.5 text-sm transition-colors outline-none focus-visible:ring-2 focus-visible:ring-ring",
+                pathname.startsWith("/docs")
                   ? "text-foreground"
                   : "text-muted-foreground hover:text-foreground",
               )}
             >
-              Agents
-            </Link>
-            <Link
-              href="/playground"
-              className={cn(
-                "rounded-md px-3 py-1.5 text-sm transition-colors",
-                isPlayground
-                  ? "text-foreground"
-                  : "text-muted-foreground hover:text-foreground",
-              )}
-            >
-              Playground
-            </Link>
-            <Link
-              href="/sponsors"
-              className={cn(
-                "rounded-md px-3 py-1.5 text-sm transition-colors",
-                isSponsors
-                  ? "text-foreground"
-                  : "text-muted-foreground hover:text-foreground",
-              )}
-            >
-              Sponsors
+              Docs
             </Link>
           </nav>
         </div>
 
-        <nav className="flex items-center gap-2">
-          {isHome ? null : (
-            <SiteSearch className="w-9 justify-center px-0 sm:w-44 sm:justify-start sm:px-3 lg:w-56" />
-          )}
-          <Tooltip content="Customize" side="bottom">
-            <button
-              type="button"
-              onClick={() => setPanelOpen(true)}
-              aria-label="Customize theme"
-              className="hidden h-9 w-9 items-center justify-center rounded-2xl border border-border bg-card/20 text-muted-foreground transition-colors hover:text-foreground sm:flex"
-            >
-              <SwatchBook className="h-4 w-4" />
-            </button>
-          </Tooltip>
+        <nav className="flex items-center gap-3">
+          <SiteSearch />
           <PressLink
             href="https://github.com/starc007/ui-components"
             target="_blank"
@@ -167,21 +131,13 @@ export function SiteHeader({
           >
             <GithubIcon className="h-3.5 w-3.5" />
             <span className="inline-flex items-center gap-0.5 text-muted-foreground">
-              {/*<Star className="h-3 w-3" />*/}
               {formattedStarCount ? <span>{formattedStarCount}</span> : null}
             </span>
           </PressLink>
-          <RainbowCta
-            href="https://pro.beui.dev/?utm_source=beui&utm_medium=referral&utm_campaign=free_to_pro&utm_content=navbar"
-            target="_blank"
-            rel="noreferrer noopener"
-            shape="pill"
-            className="min-h-9 text-xs"
-            innerClassName="bg-foreground px-3 text-background sm:px-3.5"
-          >
-            Get Pro
-            <ArrowUpRight aria-hidden="true" className="h-3.5 w-3.5" />
-          </RainbowCta>
+          <ThemeToggle
+            variant="rectangle"
+            className="flex h-9 w-9 items-center justify-center rounded-2xl border border-border bg-card/20 text-muted-foreground transition-colors hover:text-foreground"
+          />
         </nav>
       </div>
     </header>

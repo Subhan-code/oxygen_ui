@@ -1,14 +1,14 @@
 "use client";
 
 import { ArrowUpRight, BellOff } from "lucide-react";
-import { motion, useReducedMotion, type Transition } from "motion/react";
+import { motion, type Transition, useReducedMotion } from "motion/react";
 import {
-  useCallback,
-  useRef,
-  useState,
   type FocusEvent,
   type KeyboardEvent,
   type ReactNode,
+  useCallback,
+  useRef,
+  useState,
 } from "react";
 import { ActionSwapText } from "@/components/motion/action-swap";
 import { EASE_OUT, SPRING_LAYOUT } from "@/lib/ease";

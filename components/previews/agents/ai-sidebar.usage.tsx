@@ -2,6 +2,10 @@
 
 import { useState } from "react";
 import {
+  AISidebar,
+  type SidebarResource,
+} from "@/components/agents/ai-sidebar";
+import {
   AnimatedSidebar,
   AnimatedSidebarContent,
   AnimatedSidebarGroup,
@@ -9,10 +13,6 @@ import {
   AnimatedSidebarGroupLabel,
   AnimatedSidebarProvider,
 } from "@/components/motion/animated-sidebar";
-import {
-  AISidebar,
-  type SidebarResource,
-} from "@/components/agents/ai-sidebar";
 
 const resources: SidebarResource[] = [
   {

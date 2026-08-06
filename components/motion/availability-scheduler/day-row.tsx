@@ -1,7 +1,7 @@
 "use client";
 
-import { AnimatePresence, motion } from "motion/react";
 import { Plus, X } from "lucide-react";
+import { AnimatePresence, motion } from "motion/react";
 import { useRef } from "react";
 import { Switch } from "@/components/motion/switch";
 import { Tooltip } from "@/components/motion/tooltip";

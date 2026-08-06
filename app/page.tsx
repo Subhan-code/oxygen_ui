@@ -1,39 +1,29 @@
-import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { registry } from "@/lib/registry";
-import { Hero } from "@/components/app/landing/hero";
-import { InstallCommand } from "@/components/app/docs/install-command";
-import { LandingComponentCard } from "@/components/app/landing/landing-component-card";
+import Link from "next/link";
 import { SiteFooter } from "@/components/app/chrome/site-footer";
-import { Testimonials } from "@/components/app/landing/testimonials";
+import { InstallCommand } from "@/components/app/docs/install-command";
+import { Hero } from "@/components/app/landing/hero";
+import { LandingComponentCard } from "@/components/app/landing/landing-component-card";
 import { WorkCta } from "@/components/app/landing/work-cta";
 import { isComponentNew } from "@/lib/component-status";
+import { registry } from "@/lib/registry";
 
 const CURATED: { category: string; slug: string }[] = [
-  { category: "motion", slug: "button" },
-  { category: "motion", slug: "morphing-modal" },
-  { category: "motion", slug: "animated-toast-stack" },
-  { category: "motion", slug: "action-swap" },
-  { category: "motion", slug: "dock" },
-  { category: "motion", slug: "tabs" },
-  { category: "blocks", slug: "dynamic-island" },
-  { category: "blocks", slug: "command-palette" },
-  { category: "blocks", slug: "expandable-action-bar" },
-  { category: "blocks", slug: "expandable-tabs" },
-  { category: "motion", slug: "tilt-card" },
-  { category: "motion", slug: "bottom-sheet" },
-  { category: "motion", slug: "switch" },
-  { category: "motion", slug: "tooltip" },
-  { category: "motion", slug: "text-animation" },
-  { category: "motion", slug: "number" },
-  { category: "motion", slug: "bouncy-accordion" },
-  { category: "motion", slug: "range-slider" },
-  { category: "motion", slug: "theme-toggle" },
-  { category: "motion", slug: "drawer" },
+  { category: "solana", slug: "identity" },
+  { category: "solana", slug: "network" },
+  { category: "solana", slug: "assets" },
+  { category: "solana", slug: "transactions" },
+  { category: "solana", slug: "application" },
+  { category: "motion", slug: "solana-wallet-button" },
+  { category: "motion", slug: "nft-tilt-card" },
+  { category: "motion", slug: "crypto-ticker-marquee" },
+  { category: "motion", slug: "defi-dex-tabs" },
+  { category: "motion", slug: "protocol-switch" },
+  { category: "motion", slug: "solana-address-input" },
+  { category: "motion", slug: "token-select" },
   { category: "blocks", slug: "swap" },
-  { category: "blocks", slug: "otp-input" },
-  { category: "blocks", slug: "swipeable-list" },
-  { category: "blocks", slug: "bloom-menu" },
+  { category: "blocks", slug: "wallet-card" },
+  { category: "blocks", slug: "prediction-market" },
 ];
 
 const GRID_CLASS =
@@ -161,8 +151,6 @@ export default function Home() {
           ))}
         </div>
       </section>
-
-      <Testimonials />
 
       <WorkCta />
 

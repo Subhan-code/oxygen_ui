@@ -1,49 +1,35 @@
 "use client";
 
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/motion/tabs";
+import { ArrowLeftRight, Layers, Lock, TrendingUp } from "lucide-react";
+import { useState } from "react";
+import { Tabs, TabsList, TabsTrigger } from "@/components/motion/tabs";
 
 export function TabsPreview() {
-  return (
-    <div className="flex w-full max-w-md flex-col gap-8">
-      <Section title="Pill">
-        <Tabs defaultValue="overview" variant="pill">
-          <TabsList>
-            <TabsTrigger value="overview">Overview</TabsTrigger>
-            <TabsTrigger value="activity">Activity</TabsTrigger>
-            <TabsTrigger value="settings">Settings</TabsTrigger>
-          </TabsList>
-          <TabsContent value="overview" className="text-sm text-muted-foreground">High-level summary.</TabsContent>
-          <TabsContent value="activity" className="text-sm text-muted-foreground">Recent events.</TabsContent>
-          <TabsContent value="settings" className="text-sm text-muted-foreground">Preferences.</TabsContent>
-        </Tabs>
-      </Section>
-      <Section title="Segment">
-        <Tabs defaultValue="day" variant="segment">
-          <TabsList>
-            <TabsTrigger value="day">Day</TabsTrigger>
-            <TabsTrigger value="week">Week</TabsTrigger>
-            <TabsTrigger value="month">Month</TabsTrigger>
-          </TabsList>
-        </Tabs>
-      </Section>
-      <Section title="Underline">
-        <Tabs defaultValue="all" variant="underline">
-          <TabsList>
-            <TabsTrigger value="all">All</TabsTrigger>
-            <TabsTrigger value="open">Open</TabsTrigger>
-            <TabsTrigger value="closed">Closed</TabsTrigger>
-          </TabsList>
-        </Tabs>
-      </Section>
-    </div>
-  );
-}
+  const [active, setActive] = useState("swap");
 
-function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <div className="flex flex-col gap-2">
-      <span className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">{title}</span>
-      {children}
+    <div className="flex flex-col items-center justify-center gap-6 p-8 min-h-[300px]">
+      <Tabs value={active} onValueChange={setActive} variant="pill">
+        <TabsList>
+          <TabsTrigger value="swap">
+            <span className="flex items-center gap-1.5 font-medium"><ArrowLeftRight className="h-3.5 w-3.5" /> DEX Swap</span>
+          </TabsTrigger>
+          <TabsTrigger value="pools">
+            <span className="flex items-center gap-1.5 font-medium"><Layers className="h-3.5 w-3.5" /> Liquidity Pools</span>
+          </TabsTrigger>
+          <TabsTrigger value="staking">
+            <span className="flex items-center gap-1.5 font-medium"><Lock className="h-3.5 w-3.5" /> SOL Staking</span>
+          </TabsTrigger>
+          <TabsTrigger value="perps">
+            <span className="flex items-center gap-1.5 font-medium"><TrendingUp className="h-3.5 w-3.5" /> 100x Perps</span>
+          </TabsTrigger>
+        </TabsList>
+      </Tabs>
+
+      <div className="rounded-xl border border-border bg-card p-4 text-xs font-mono text-muted-foreground">
+        Active Section: <span className="text-accent font-bold uppercase">{active}</span>
+      </div>
     </div>
   );
 }
+export default TabsPreview;

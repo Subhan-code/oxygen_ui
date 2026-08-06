@@ -27,8 +27,8 @@ import {
   AgentCode,
   type AgentCodeLanguage,
 } from "@/components/agents/agent-code";
-import { ActionSwapRollText } from "@/components/motion/action-swap-roll";
 import { AgentDisclosure } from "@/components/agents/agent-disclosure";
+import { ActionSwapRollText } from "@/components/motion/action-swap-roll";
 import { SPRING_PRESS, SPRING_SWAP } from "@/lib/ease";
 import { cn } from "@/lib/utils";
 

@@ -53,7 +53,9 @@ export async function resolveSourceImport(spec: string, fromFile?: string): Prom
 
 function candidatePaths(rel: string) {
   const parsed = path.parse(rel);
-  if (parsed.ext) return [rel];
+  if (parsed.ext && (SOURCE_EXTENSIONS as readonly string[]).includes(parsed.ext)) {
+    return [rel];
+  }
 
   return [
     ...SOURCE_EXTENSIONS.map((ext) => `${rel}${ext}`),

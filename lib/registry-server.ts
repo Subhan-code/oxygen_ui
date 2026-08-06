@@ -1,5 +1,5 @@
-import { allComponents, findCategory, registry } from "@/lib/registry";
 import { componentDates } from "@/lib/component-dates";
+import { allComponents, findCategory, registry } from "@/lib/registry";
 import { pageUrlFor, withSignature } from "@/lib/signature";
 import { SITE_URL } from "@/lib/site";
 import { readOptionalSourceFile, readSourceFile, resolveSourceImport, type SourceFile } from "@/lib/source-files";

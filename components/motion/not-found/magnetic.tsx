@@ -5,8 +5,8 @@ import { cn } from "@/lib/utils";
 import {
   NOT_FOUND_DEFAULTS,
   NotFoundActions,
-  NotFoundStage,
   type NotFoundProps,
+  NotFoundStage,
 } from "./shared";
 
 export function NotFoundMagnetic({

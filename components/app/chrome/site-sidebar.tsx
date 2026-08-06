@@ -2,9 +2,9 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { registry } from "@/lib/registry";
 import { NewBadge } from "@/components/app/docs/new-badge";
 import { SharedLayoutBg } from "@/components/motion/shared-layout-bg";
+import { registry } from "@/lib/registry";
 import { cn } from "@/lib/utils";
 
 const INTRO = [

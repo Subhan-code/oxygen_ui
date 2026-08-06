@@ -1,13 +1,13 @@
-import { codeToHtml } from "shiki";
 import {
-  transformerNotationHighlight,
   transformerNotationDiff,
   transformerNotationFocus,
+  transformerNotationHighlight,
 } from "@shikijs/transformers";
+import { FileIcon } from "lucide-react";
+import { codeToHtml } from "shiki";
+import { cn } from "@/lib/utils";
 import { CopyButton } from "./copy-button";
 import { ExpandableCode } from "./expandable-code";
-import { cn } from "@/lib/utils";
-import { FileIcon } from "lucide-react";
 
 type Props = {
   code: string;

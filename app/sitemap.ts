@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
-import { allComponents, registry } from "@/lib/registry";
 import { componentDates } from "@/lib/component-dates";
+import { allComponents, registry } from "@/lib/registry";
 import { SITE_URL as SITE } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {

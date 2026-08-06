@@ -3,80 +3,99 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-    /* Light mode — beUI Current. */
-    --background: oklch(99% 0 0);
-    --foreground: oklch(15% 0 0);
-    --card: oklch(97% 0 0);
-    --muted-foreground: oklch(50% 0 0);
-    --border: oklch(15% 0 0 / 0.06);
-    /* beUI extensions (no shadcn equivalent). */
-    --border-strong: oklch(15% 0 0 / 0.12);
-    --accent-fg: oklch(15% 0 0);
-    --neon: oklch(80% 0.22 145);
-    --violet: oklch(68% 0.22 295);
-    --danger: oklch(62% 0.22 25);
-    --success: oklch(70% 0.18 155);
-    --warning: oklch(78% 0.18 75);
-    --glass-bg: oklch(99% 0 0 / 0.55);
-    --glass-border: oklch(15% 0 0 / 0.08);
-    --glass-strong-bg: rgb(255 255 255 / 0.7);
-    --glass-thin-bg: rgb(255 255 255 / 0.45);
-    --gradient-bg: linear-gradient(
-        135deg,
-        oklch(99% 0 0) 0%,
-        oklch(96% 0.008 210) 100%
-    );
-    --gradient-accent: linear-gradient(
-        to right,
-        oklch(72% 0.18 195) 0%,
-        oklch(68% 0.22 295) 100%
-    );
-    /* shadcn semantic tokens, mapped onto the base. */
-    --card-foreground: var(--foreground);
-    --popover: var(--card);
-    --popover-foreground: var(--foreground);
-    --primary: var(--foreground);
-    --primary-foreground: var(--background);
-    --secondary: var(--card);
-    --secondary-foreground: var(--foreground);
-    --muted: var(--card);
-    --accent: oklch(72% 0.18 195);
-    --accent-foreground: var(--accent-fg);
-    --destructive: var(--danger);
-    --input: var(--border);
-    --ring: var(--border-strong);
+  --background: oklch(99% 0 0);
+  --foreground: oklch(15% 0 0);
+  --card: oklch(97% 0 0);
+  --card-foreground: oklch(15% 0 0);
+  --popover: oklch(97% 0 0);
+  --popover-foreground: oklch(15% 0 0);
+  --primary: oklch(55% 0.18 255);
+  --primary-foreground: oklch(99% 0 0);
+  --secondary: oklch(97% 0 0);
+  --secondary-foreground: oklch(15% 0 0);
+  --muted: oklch(97% 0 0);
+  --muted-foreground: oklch(50% 0 0);
+  --accent: oklch(55% 0.18 255);
+  --accent-foreground: oklch(99% 0 0);
+  --destructive: oklch(62% 0.22 25);
+  --border: oklch(15% 0 0 / 0.06);
+  --input: oklch(15% 0 0 / 0.06);
+  --ring: oklch(55% 0.18 255 / 0.5);
+  --border-strong: oklch(15% 0 0 / 0.12);
+  --accent-fg: oklch(99% 0 0);
+  --glass-bg: oklch(99% 0 0 / 0.55);
+  --glass-border: oklch(15% 0 0 / 0.08);
+  --glass-strong-bg: rgb(255 255 255 / 0.7);
+  --glass-thin-bg: rgb(255 255 255 / 0.45);
+
+  /* Motion tokens — transitions.dev shared scale */
+  --duration-stagger: 40ms;
+  --duration-micro: 80ms;
+  --duration-quick: 150ms;
+  --duration-fast: 250ms;
+  --duration-medium: 350ms;
+  --duration-slow: 400ms;
+  --duration-very-slow: 500ms;
+
+  --ease-smooth-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-bounce: cubic-bezier(0.34, 1.36, 0.64, 1);
+  --ease-bounce-strong: cubic-bezier(0.34, 3.85, 0.64, 1);
+
+  --distance-micro: 4px;
+  --distance-small: 6px;
+  --distance-base: 8px;
+  --distance-medium: 12px;
+  --distance-large: 30px;
+
+  --scale-large: 0.96;
+  --scale-medium: 0.97;
+  --scale-small: 0.98;
+  --scale-tiny: 0.99;
+
+  --blur-small: 2px;
+  --blur-medium: 3px;
+  --blur-large: 8px;
+
+  --toggle-dur: 350ms;
+  --toggle-travel: 14.66px;
+  --toggle-ov1: 1px;
+  --toggle-ov2: 0px;
+  --toggle-track: 0ms;
+  --toggle-ease: cubic-bezier(0.34, 1.35, 0.64, 1);
 }
 
-/* Dark mode — beUI Current. Semantic tokens follow the base via var(). */
 .dark {
-    --background: #151515;
-    --foreground: oklch(96% 0 0);
-    --card: #1c1c1c;
-    --muted-foreground: oklch(62% 0 0);
-    --border: rgb(255 255 255 / 0.05);
-    --border-strong: rgb(255 255 255 / 0.1);
-    --accent: oklch(80% 0.18 195);
-    --accent-fg: #151515;
-    --glass-bg: rgb(28 28 28 / 0.55);
-    --glass-border: rgb(255 255 255 / 0.08);
-    --glass-strong-bg: rgb(28 28 28 / 0.6);
-    --glass-thin-bg: rgb(21 21 21 / 0.45);
-    --gradient-bg: linear-gradient(
-        135deg,
-        oklch(19% 0 0) 0%,
-        oklch(22% 0.008 210) 100%
-    );
-    --gradient-accent: linear-gradient(
-        to right,
-        oklch(80% 0.18 195) 0%,
-        oklch(72% 0.18 295) 100%
-    );
+  --background: #151515;
+  --foreground: oklch(96% 0 0);
+  --card: #1c1c1c;
+  --card-foreground: oklch(96% 0 0);
+  --popover: #1c1c1c;
+  --popover-foreground: oklch(96% 0 0);
+  --primary: oklch(70% 0.15 255);
+  --primary-foreground: oklch(15% 0 0);
+  --secondary: #1c1c1c;
+  --secondary-foreground: oklch(96% 0 0);
+  --muted: #1c1c1c;
+  --muted-foreground: oklch(62% 0 0);
+  --accent: oklch(70% 0.15 255);
+  --accent-foreground: oklch(15% 0 0);
+  --destructive: oklch(62% 0.22 25);
+  --border: rgb(255 255 255 / 0.05);
+  --input: rgb(255 255 255 / 0.05);
+  --ring: oklch(70% 0.15 255 / 0.55);
+  --border-strong: rgb(255 255 255 / 0.1);
+  --accent-fg: #151515;
+  --glass-bg: rgb(28 28 28 / 0.55);
+  --glass-border: rgb(255 255 255 / 0.08);
+  --glass-strong-bg: rgb(28 28 28 / 0.6);
+  --glass-thin-bg: rgb(21 21 21 / 0.45);
 }
 
 /* Color theme presets (full token sets) are injected at runtime from
    lib/themes.ts via PreferencesProvider, keyed by data-theme on <html>. */
 
 @theme inline {
+    --font-geist-mono: var(--font-geist-mono);
     /* Strong easing curves shared across every component. */
     --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
     --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
@@ -309,11 +328,40 @@
         border: 1px solid var(--glass-border);
     }
 
+    .cv-auto {
+        content-visibility: auto;
+        contain-intrinsic-size: 1px 400px;
+    }
+
+    .gpu-accelerated {
+        transform: translateZ(0);
+        backface-visibility: hidden;
+    }
+
     .press {
         transition: transform 120ms var(--ease-out);
     }
     .press:active {
         transform: scale(0.97);
+    }
+
+    /* Transitions.dev — Toggle */
+    .t-toggle { transition: background var(--toggle-track) var(--toggle-ease); }
+    .t-toggle-thumb { translate: 0 0; will-change: translate; }
+    .t-toggle[data-on="true"] .t-toggle-thumb { translate: var(--toggle-travel) 0; }
+    .t-toggle.is-init[data-on="true"] .t-toggle-thumb { animation: t-toggle-on var(--toggle-dur) var(--toggle-ease) both; }
+    .t-toggle.is-init[data-on="false"] .t-toggle-thumb { animation: t-toggle-off var(--toggle-dur) var(--toggle-ease) both; }
+    @keyframes t-toggle-on {
+      0% { translate: 0 0; }
+      55% { translate: calc(var(--toggle-travel) + var(--toggle-ov1)) 0; }
+      80% { translate: calc(var(--toggle-travel) - var(--toggle-ov2)) 0; }
+      100% { translate: var(--toggle-travel) 0; }
+    }
+    @keyframes t-toggle-off {
+      0% { translate: var(--toggle-travel) 0; }
+      55% { translate: calc(0px - var(--toggle-ov1)) 0; }
+      80% { translate: var(--toggle-ov2) 0; }
+      100% { translate: 0 0; }
     }
 }
 

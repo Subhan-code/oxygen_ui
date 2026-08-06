@@ -8,17 +8,17 @@ import {
   useReducedMotion,
 } from "motion/react";
 import {
+  type CSSProperties,
   useCallback,
   useEffect,
   useId,
   useMemo,
   useRef,
   useState,
-  type CSSProperties,
 } from "react";
 import { EASE_OUT } from "@/lib/ease";
 import { cn } from "@/lib/utils";
-import { StatefulButton, type ButtonState } from "./button/stateful";
+import { type ButtonState, StatefulButton } from "./button/stateful";
 import { NumberTicker } from "./number-ticker";
 import { Tabs, TabsList, TabsTrigger } from "./tabs";
 
