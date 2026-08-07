@@ -526,6 +526,21 @@ export const previews: Record<string, ComponentType> = {
       (m) => m.MembersLineChartPreview,
     ),
   ),
+  "motion/scroll-progress-sections": dynamic(() =>
+    import("./motion/scroll-progress-sections.preview").then(
+      (m) => m.ScrollProgressSectionsPreview,
+    ),
+  ),
+  "motion/github-activity": dynamic(() =>
+    import("./motion/github-activity.preview").then(
+      (m) => m.GitHubActivityPreview,
+    ),
+  ),
+  "motion/proximity-sidebar": dynamic(() =>
+    import("./motion/proximity-sidebar.preview").then(
+      (m) => m.ProximitySidebarPreview,
+    ),
+  ),
 };
 
 export function getPreview(category: string, slug: string) {

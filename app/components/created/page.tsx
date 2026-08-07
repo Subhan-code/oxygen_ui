@@ -196,6 +196,30 @@ const CREATED_CRYPTO_MOTION = [
     badge: "new" as const,
     launchedAt: "2026-08-07",
   },
+  {
+    slug: "scroll-progress-sections",
+    categorySlug: "motion",
+    name: "Scroll Progress Sections",
+    description: "Floating squircle scroll progress pill that morphs into a section navigation menu with smooth spring layout transitions.",
+    badge: "new" as const,
+    launchedAt: "2026-08-07",
+  },
+  {
+    slug: "github-activity",
+    categorySlug: "motion",
+    name: "GitHub Activity",
+    description: "Interactive GitHub activity contribution grid with live user/repo fetching, tooltip inspection, and expandable repository panel.",
+    badge: "new" as const,
+    launchedAt: "2026-08-07",
+  },
+  {
+    slug: "proximity-sidebar",
+    categorySlug: "motion",
+    name: "Proximity Sidebar",
+    description: "Proximity-aware minimap navigation sidebar with magnetic dash scaling based on cursor position and active section scroll tracking.",
+    badge: "new" as const,
+    launchedAt: "2026-08-07",
+  },
 ];
 
 const CREATED_UI_PRIMITIVES = [
