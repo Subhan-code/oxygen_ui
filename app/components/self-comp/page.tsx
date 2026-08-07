@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
-import { CopyButton } from "@/components/app/copy-button";
+import { CopyButton } from "@/components/app/docs/copy-button";
 import { getPreview } from "@/components/previews";
 import { cn } from "@/lib/utils";
 
@@ -324,7 +324,7 @@ export default function SelfCompPage() {
                     <code className="truncate text-xs font-mono text-muted-foreground">
                       {installCmd}
                     </code>
-                    <CopyButton value={installCmd} />
+                    <CopyButton text={installCmd} />
                   </div>
                 </div>
               </div>
