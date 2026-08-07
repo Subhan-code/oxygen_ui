@@ -8,7 +8,9 @@ import { registry } from "@/lib/registry";
 import { cn } from "@/lib/utils";
 
 const INTRO = [
-  { slug: "home", name: "Home", href: "/components/motion" },
+  { slug: "created", name: "🚀 Created Components", href: "/components/created" },
+  { slug: "existing", name: "📚 Original Library", href: "/components/existing" },
+  { slug: "home", name: "All Primitives", href: "/components/motion" },
 ];
 
 const PATTERNS = [

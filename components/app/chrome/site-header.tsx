@@ -27,6 +27,8 @@ export function SiteHeader({
   const { scrollY } = useScroll();
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
+  const isCreated = pathname === "/components/created";
+  const isExisting = pathname === "/components/existing";
   const isSolana = pathname.startsWith("/components/solana");
   const isComponents = pathname.startsWith("/components/motion");
   const isBlocks = pathname.startsWith("/components/blocks");
@@ -68,50 +70,64 @@ export function SiteHeader({
             </div>
             <span>Oxygen UI</span>
           </Link>
-          <nav className="hidden items-center gap-0.5 md:flex">
+          <nav className="hidden items-center gap-1 md:flex">
+            <Link
+              href="/components/created"
+              className={cn(
+                "flex items-center gap-1.5 rounded-md px-3 py-1.5 text-sm font-medium transition-colors outline-none focus-visible:ring-2 focus-visible:ring-ring",
+                isCreated
+                  ? "bg-emerald-500/15 text-emerald-500 dark:text-emerald-400 font-semibold"
+                  : "text-emerald-600 dark:text-emerald-400/90 hover:bg-emerald-500/10",
+              )}
+            >
+              <span>Created</span>
+              <span className="rounded-full bg-emerald-500/20 px-1.5 py-0.2 text-[10px] font-bold">
+                NEW
+              </span>
+            </Link>
+            <Link
+              href="/components/existing"
+              className={cn(
+                "rounded-md px-3 py-1.5 text-sm font-medium transition-colors outline-none focus-visible:ring-2 focus-visible:ring-ring",
+                isExisting
+                  ? "bg-accent/15 text-foreground font-semibold"
+                  : "text-muted-foreground hover:text-foreground",
+              )}
+            >
+              Original Library
+            </Link>
             <Link
               href="/components/solana"
               className={cn(
-                "rounded-md px-3 py-1.5 text-sm transition-colors font-medium outline-none focus-visible:ring-2 focus-visible:ring-ring",
+                "rounded-md px-3 py-1.5 text-sm transition-colors outline-none focus-visible:ring-2 focus-visible:ring-ring",
                 isSolana
                   ? "text-foreground font-semibold"
                   : "text-muted-foreground hover:text-foreground",
               )}
             >
-              Solana Primitives
+              Solana
             </Link>
             <Link
               href="/components/motion"
               className={cn(
                 "rounded-md px-3 py-1.5 text-sm transition-colors outline-none focus-visible:ring-2 focus-visible:ring-ring",
                 isComponents
-                  ? "text-foreground"
+                  ? "text-foreground font-semibold"
                   : "text-muted-foreground hover:text-foreground",
               )}
             >
-              Components
+              Motion
             </Link>
             <Link
               href="/components/blocks"
               className={cn(
                 "rounded-md px-3 py-1.5 text-sm transition-colors outline-none focus-visible:ring-2 focus-visible:ring-ring",
                 isBlocks
-                  ? "text-foreground"
+                  ? "text-foreground font-semibold"
                   : "text-muted-foreground hover:text-foreground",
               )}
             >
               Blocks
-            </Link>
-            <Link
-              href="/docs/motion-patterns"
-              className={cn(
-                "rounded-md px-3 py-1.5 text-sm transition-colors outline-none focus-visible:ring-2 focus-visible:ring-ring",
-                pathname.startsWith("/docs")
-                  ? "text-foreground"
-                  : "text-muted-foreground hover:text-foreground",
-              )}
-            >
-              Docs
             </Link>
           </nav>
         </div>
@@ -119,7 +135,7 @@ export function SiteHeader({
         <nav className="flex items-center gap-3">
           <SiteSearch />
           <PressLink
-            href="https://github.com/starc007/ui-components"
+            href="https://github.com/Subhan-code/oxygen_ui"
             target="_blank"
             rel="noreferrer noopener"
             className="group inline-flex items-center gap-1.5 rounded-2xl border border-border bg-card/20 px-3 py-2 text-xs font-medium text-foreground hover:border-(--color-border-strong)"
