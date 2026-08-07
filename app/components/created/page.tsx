@@ -116,6 +116,54 @@ const CREATED_CRYPTO_MOTION = [
     badge: "new" as const,
     launchedAt: "2026-07-16",
   },
+  {
+    slug: "add-member-dialog",
+    categorySlug: "motion",
+    name: "Add Member Dialog",
+    description: "Morphing modal dialog with concentric corner system, smooth role text swap, US phone formatting, loader-to-check state machine, and glow/glossy CTA buttons.",
+    badge: "new" as const,
+    launchedAt: "2026-08-07",
+  },
+  {
+    slug: "dither-donut-chart",
+    categorySlug: "motion",
+    name: "Dither Donut Chart",
+    description: "Canvas donut chart with drifting square-tile dither fill, smooth angle morphing between period changes, hover wedge explosion with glow, and center period total.",
+    badge: "new" as const,
+    launchedAt: "2026-08-07",
+  },
+  {
+    slug: "gooey-droplet-sheet",
+    categorySlug: "motion",
+    name: "Gooey Droplet Sheet",
+    description: "Velocity-driven liquid droplet panel transform supporting full-width sheet and bead modes with liquid pinch and surface tension radius.",
+    badge: "new" as const,
+    launchedAt: "2026-08-07",
+  },
+  {
+    slug: "dither-bar-chart",
+    categorySlug: "motion",
+    name: "Dither Bar Chart",
+    description: "Canvas bar chart with a field of drifting square tiles, staggered morphing per column from current height, hover recolor/glow, and alpha dimming.",
+    badge: "new" as const,
+    launchedAt: "2026-08-07",
+  },
+  {
+    slug: "direct-scrubber-chart",
+    categorySlug: "motion",
+    name: "Direct Scrubber Chart",
+    description: "Direct manipulation curve scrubber with dual-axis x & y spring tracking, day snapping, and smooth KPI/range morphing without remounting.",
+    badge: "new" as const,
+    launchedAt: "2026-08-07",
+  },
+  {
+    slug: "hand-gestures",
+    categorySlug: "motion",
+    name: "Hand Gestures",
+    description: "Vector morphing hand gesture glyphs (Minimize, Palm/Clench, OK Sign) using pure bezier path morphs and self-contained CSS keyframes.",
+    badge: "new" as const,
+    launchedAt: "2026-08-07",
+  },
 ];
 
 const CREATED_UI_PRIMITIVES = [
@@ -129,6 +177,41 @@ const CREATED_UI_PRIMITIVES = [
   },
 ];
 
+const CREATED_BLOCKS = [
+  {
+    slug: "prediction-market",
+    categorySlug: "blocks",
+    name: "Prediction Market",
+    description: "Prediction market trade ticket with buy/sell modes, outcome prices, rolling amount entry, quick add chips and trade states.",
+    badge: "new" as const,
+    launchedAt: "2026-08-07",
+  },
+  {
+    slug: "overflow-actions",
+    categorySlug: "blocks",
+    name: "Overflow Actions",
+    description: "Connected pill rail for primary actions that springs open to reveal extra controls.",
+    badge: "new" as const,
+    launchedAt: "2026-08-07",
+  },
+  {
+    slug: "expandable-tabs",
+    categorySlug: "blocks",
+    name: "Expandable Tabs",
+    description: "Icon tab bar where active tab expands to labelled pill with height-morphing panel.",
+    badge: "new" as const,
+    launchedAt: "2026-08-07",
+  },
+  {
+    slug: "swipeable-list",
+    categorySlug: "blocks",
+    name: "Swipeable List",
+    description: "Mobile-style list rows that swipe left or right to reveal contextual action buttons.",
+    badge: "new" as const,
+    launchedAt: "2026-08-07",
+  },
+];
+
 export default function CreatedComponentsPage() {
   return (
     <div className="space-y-12">
@@ -138,18 +221,24 @@ export default function CreatedComponentsPage() {
             Added / Custom Components
           </span>
           <span className="text-xs text-muted-foreground">
-            {CREATED_SOLANA.length + CREATED_CRYPTO_MOTION.length + CREATED_UI_PRIMITIVES.length} components created
+            {CREATED_SOLANA.length + CREATED_CRYPTO_MOTION.length + CREATED_UI_PRIMITIVES.length + CREATED_BLOCKS.length} components created
           </span>
         </div>
         <h1 className="mt-4 font-display text-3xl font-bold tracking-tight text-foreground md:text-4xl">
           Newly Created Components
         </h1>
         <p className="mt-3 max-w-3xl text-base leading-relaxed text-muted-foreground">
-          These components were custom-built and added to Oxygen UI. They include production-ready Solana React primitives, Web3 motion components, Base58 validators, DEX interfaces, and specialized UI components.
+          These components were custom-built and added to Oxygen UI. They include production-ready Solana React primitives, Web3 motion components, Base58 validators, DEX interfaces, and specialized product UI blocks.
         </p>
 
         {/* Quick nav filter buttons */}
         <div className="mt-6 flex flex-wrap gap-2">
+          <a
+            href="#product-blocks"
+            className="rounded-full border border-emerald-500/30 bg-emerald-500/10 px-4 py-1.5 text-xs font-medium text-emerald-500 dark:text-emerald-400 transition-colors hover:bg-emerald-500/20"
+          >
+            ⚡ Product UI Blocks ({CREATED_BLOCKS.length})
+          </a>
           <a
             href="#solana-primitives"
             className="rounded-full border border-border bg-card/50 px-4 py-1.5 text-xs font-medium text-foreground transition-colors hover:bg-accent"
@@ -170,6 +259,44 @@ export default function CreatedComponentsPage() {
           </a>
         </div>
       </div>
+
+      {/* Product Blocks Section */}
+      <section id="product-blocks" className="scroll-mt-24 space-y-4">
+        <div className="border-b border-border/60 pb-3">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <h2 className="font-display text-xl font-semibold tracking-tight text-foreground">
+                Product UI Blocks
+              </h2>
+              <span className="rounded-full bg-emerald-500/10 px-2.5 py-0.5 text-[11px] font-semibold text-emerald-500 dark:bg-emerald-400/10 dark:text-emerald-400">
+                4 blocks
+              </span>
+            </div>
+            <Link
+              href="/components/new-blocks"
+              className="text-xs font-semibold text-emerald-500 hover:underline dark:text-emerald-400"
+            >
+              View Dedicated Page →
+            </Link>
+          </div>
+          <p className="mt-1 text-sm text-muted-foreground">
+            Interactive, spring-animated composed widgets for prediction market trade tickets, expandable action rails, dynamic tab docks, and touch swipeable lists.
+          </p>
+        </div>
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
+          {CREATED_BLOCKS.map((comp) => (
+            <ComponentCard
+              key={comp.slug}
+              categorySlug={comp.categorySlug}
+              slug={comp.slug}
+              name={comp.name}
+              description={comp.description}
+              badge={comp.badge}
+              launchedAt={comp.launchedAt}
+            />
+          ))}
+        </div>
+      </section>
 
       {/* Solana Section */}
       <section id="solana-primitives" className="scroll-mt-24 space-y-4">

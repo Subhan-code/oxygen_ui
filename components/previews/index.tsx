@@ -476,6 +476,36 @@ export const previews: Record<string, ComponentType> = {
   "motion/loader": dynamic(() =>
     import("./motion/loader.preview").then((m) => m.LoaderPreview),
   ),
+  "motion/add-member-dialog": dynamic(() =>
+    import("./motion/add-member-dialog.preview").then(
+      (m) => m.AddMemberDialogPreview,
+    ),
+  ),
+  "motion/dither-donut-chart": dynamic(() =>
+    import("./motion/dither-donut-chart.preview").then(
+      (m) => m.DitherDonutChartPreview,
+    ),
+  ),
+  "motion/gooey-droplet-sheet": dynamic(() =>
+    import("./motion/gooey-droplet-sheet.preview").then(
+      (m) => m.GooeyDropletSheetPreview,
+    ),
+  ),
+  "motion/dither-bar-chart": dynamic(() =>
+    import("./motion/dither-bar-chart.preview").then(
+      (m) => m.DitherBarChartPreview,
+    ),
+  ),
+  "motion/direct-scrubber-chart": dynamic(() =>
+    import("./motion/direct-scrubber-chart.preview").then(
+      (m) => m.DirectScrubberChartPreview,
+    ),
+  ),
+  "motion/hand-gestures": dynamic(() =>
+    import("./motion/hand-gestures.preview").then(
+      (m) => m.HandGesturesPreview,
+    ),
+  ),
 };
 
 export function getPreview(category: string, slug: string) {

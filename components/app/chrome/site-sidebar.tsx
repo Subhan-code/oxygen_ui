@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils";
 
 const INTRO = [
   { slug: "created", name: "🚀 Created Components", href: "/components/created" },
+  { slug: "new-blocks", name: "⚡ Product Blocks", href: "/components/new-blocks" },
   { slug: "existing", name: "📚 Original Library", href: "/components/existing" },
   { slug: "home", name: "All Primitives", href: "/components/motion" },
 ];
