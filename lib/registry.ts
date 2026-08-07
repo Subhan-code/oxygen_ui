@@ -962,6 +962,14 @@ export const registry: CategoryEntry[] = [
         badge: "new",
         launchedAt: "2026-08-07",
       },
+      {
+        slug: "family-wallet-auth",
+        name: "Family Wallet Auth",
+        description: "Authentication interface with social sign-ins, email/phone/passkey tab bar, 6-digit OTP verification, and wallet connection drawer (Metamask, Coinbase, Phantom, Trust).",
+        file: "components/motion/family-wallet-auth.tsx",
+        badge: "new",
+        launchedAt: "2026-08-07",
+      },
     ],
   },
   {

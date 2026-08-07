@@ -228,6 +228,14 @@ const CREATED_CRYPTO_MOTION = [
     badge: "new" as const,
     launchedAt: "2026-08-07",
   },
+  {
+    slug: "family-wallet-auth",
+    categorySlug: "motion",
+    name: "Family Wallet Auth",
+    description: "Authentication interface with social sign-ins, email/phone/passkey tab bar, 6-digit OTP verification, and wallet connection drawer (Metamask, Coinbase, Phantom, Trust).",
+    badge: "new" as const,
+    launchedAt: "2026-08-07",
+  },
 ];
 
 const CREATED_UI_PRIMITIVES = [

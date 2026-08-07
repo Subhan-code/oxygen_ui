@@ -546,6 +546,11 @@ export const previews: Record<string, ComponentType> = {
       (m) => m.MinimalCardExpandPreview,
     ),
   ),
+  "motion/family-wallet-auth": dynamic(() =>
+    import("./motion/family-wallet-auth.preview").then(
+      (m) => m.FamilyWalletAuthPreview,
+    ),
+  ),
 };
 
 export function getPreview(category: string, slug: string) {
