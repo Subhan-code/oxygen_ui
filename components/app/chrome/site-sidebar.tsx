@@ -8,6 +8,7 @@ import { registry } from "@/lib/registry";
 import { cn } from "@/lib/utils";
 
 const INTRO = [
+  { slug: "self-comp", name: "✨ Self Components", href: "/components/self-comp" },
   { slug: "created", name: "🚀 Created Components", href: "/components/created" },
   { slug: "new-blocks", name: "⚡ Product Blocks", href: "/components/new-blocks" },
   { slug: "existing", name: "📚 Original Library", href: "/components/existing" },
