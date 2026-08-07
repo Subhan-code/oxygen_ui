@@ -970,6 +970,22 @@ export const registry: CategoryEntry[] = [
         badge: "new",
         launchedAt: "2026-08-07",
       },
+      {
+        slug: "aave-token-swap",
+        name: "Aave Token Swap",
+        description: "Cryptocurrency exchange interface with animated number inputs, USD conversion, Use Max button, and direction toggle.",
+        file: "components/motion/aave-token-swap.tsx",
+        badge: "new",
+        launchedAt: "2026-08-07",
+      },
+      {
+        slug: "family-receive-button",
+        name: "Family Receive Button",
+        description: "Animated confirmation dialog with fingerprint authentication icon, backdrop blur, and smooth layout transitions.",
+        file: "components/motion/family-receive-button.tsx",
+        badge: "new",
+        launchedAt: "2026-08-07",
+      },
     ],
   },
   {

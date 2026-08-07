@@ -551,6 +551,16 @@ export const previews: Record<string, ComponentType> = {
       (m) => m.FamilyWalletAuthPreview,
     ),
   ),
+  "motion/aave-token-swap": dynamic(() =>
+    import("./motion/aave-token-swap.preview").then(
+      (m) => m.AaveTokenSwapPreview,
+    ),
+  ),
+  "motion/family-receive-button": dynamic(() =>
+    import("./motion/family-receive-button.preview").then(
+      (m) => m.FamilyReceiveButtonPreview,
+    ),
+  ),
 };
 
 export function getPreview(category: string, slug: string) {

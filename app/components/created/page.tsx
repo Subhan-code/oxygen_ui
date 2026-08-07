@@ -236,6 +236,22 @@ const CREATED_CRYPTO_MOTION = [
     badge: "new" as const,
     launchedAt: "2026-08-07",
   },
+  {
+    slug: "aave-token-swap",
+    categorySlug: "motion",
+    name: "Aave Token Swap",
+    description: "Cryptocurrency exchange interface with animated number inputs, USD conversion, Use Max button, and direction toggle.",
+    badge: "new" as const,
+    launchedAt: "2026-08-07",
+  },
+  {
+    slug: "family-receive-button",
+    categorySlug: "motion",
+    name: "Family Receive Button",
+    description: "Animated confirmation dialog with fingerprint authentication icon, backdrop blur, and smooth layout transitions.",
+    badge: "new" as const,
+    launchedAt: "2026-08-07",
+  },
 ];
 
 const CREATED_UI_PRIMITIVES = [
