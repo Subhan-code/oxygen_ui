@@ -164,6 +164,38 @@ const CREATED_CRYPTO_MOTION = [
     badge: "new" as const,
     launchedAt: "2026-08-07",
   },
+  {
+    slug: "pipeline-board",
+    categorySlug: "motion",
+    name: "Pipeline Board",
+    description: "Kanban and stacked list drag & drop board with pickup snapshot hit-testing, velocity tilt spring, and land tween easing.",
+    badge: "new" as const,
+    launchedAt: "2026-08-07",
+  },
+  {
+    slug: "members-plan-donut-chart",
+    categorySlug: "motion",
+    name: "Members by Plan Donut Chart",
+    description: "Canvas donut chart with 5 plans, drifting square dither tile fill, 500ms angle morphing, exploded wedge hover, and period switcher.",
+    badge: "new" as const,
+    launchedAt: "2026-08-07",
+  },
+  {
+    slug: "payments-bar-chart",
+    categorySlug: "motion",
+    name: "Payments Stacked Bar Chart",
+    description: "Canvas stacked bar chart card with 3-band stacked bars, 4 columns, legend chips, continuous wave drift, and staggered height morphing.",
+    badge: "new" as const,
+    launchedAt: "2026-08-07",
+  },
+  {
+    slug: "members-line-chart",
+    categorySlug: "motion",
+    name: "Members Line Chart",
+    description: "Canvas area line chart with crisp dither tiles fill, 7D/14D/30D/90D range selector, lerped cursor glow, and single-spring X & Y scrubber.",
+    badge: "new" as const,
+    launchedAt: "2026-08-07",
+  },
 ];
 
 const CREATED_UI_PRIMITIVES = [

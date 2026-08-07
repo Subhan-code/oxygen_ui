@@ -506,6 +506,26 @@ export const previews: Record<string, ComponentType> = {
       (m) => m.HandGesturesPreview,
     ),
   ),
+  "motion/pipeline-board": dynamic(() =>
+    import("./motion/pipeline-board.preview").then(
+      (m) => m.PipelineBoardPreview,
+    ),
+  ),
+  "motion/members-plan-donut-chart": dynamic(() =>
+    import("./motion/members-plan-donut-chart.preview").then(
+      (m) => m.MembersPlanDonutChartPreview,
+    ),
+  ),
+  "motion/payments-bar-chart": dynamic(() =>
+    import("./motion/payments-bar-chart.preview").then(
+      (m) => m.PaymentsBarChartPreview,
+    ),
+  ),
+  "motion/members-line-chart": dynamic(() =>
+    import("./motion/members-line-chart.preview").then(
+      (m) => m.MembersLineChartPreview,
+    ),
+  ),
 };
 
 export function getPreview(category: string, slug: string) {
