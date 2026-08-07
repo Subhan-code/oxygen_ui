@@ -1,4 +1,5 @@
 "use client";
+// beui.dev/components/blocks/expandable-tabs
 
 import {
   AnimatePresence,
@@ -7,12 +8,12 @@ import {
   type Variants,
 } from "motion/react";
 import {
-  type ReactNode,
   useCallback,
   useEffect,
   useLayoutEffect,
   useRef,
   useState,
+  type ReactNode,
 } from "react";
 import { EASE_OUT } from "@/lib/ease";
 import { cn } from "@/lib/utils";

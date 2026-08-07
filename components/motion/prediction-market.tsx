@@ -1,4 +1,5 @@
 "use client";
+// beui.dev/components/blocks/prediction-market
 
 import { Banknote, ChevronDown } from "lucide-react";
 import {
@@ -8,17 +9,17 @@ import {
   useReducedMotion,
 } from "motion/react";
 import {
-  type CSSProperties,
   useCallback,
   useEffect,
   useId,
   useMemo,
   useRef,
   useState,
+  type CSSProperties,
 } from "react";
 import { EASE_OUT } from "@/lib/ease";
 import { cn } from "@/lib/utils";
-import { type ButtonState, StatefulButton } from "./button/stateful";
+import { StatefulButton, type ButtonState } from "./button/stateful";
 import { NumberTicker } from "./number-ticker";
 import { Tabs, TabsList, TabsTrigger } from "./tabs";
 

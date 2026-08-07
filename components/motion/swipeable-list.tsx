@@ -1,18 +1,19 @@
 "use client";
+// beui.dev/components/blocks/swipeable-list
 
 import {
   animate,
   motion,
-  type PanInfo,
   useMotionValue,
   useReducedMotion,
+  type PanInfo,
 } from "motion/react";
 import {
-  type ReactNode,
   useCallback,
   useEffect,
   useRef,
   useState,
+  type ReactNode,
 } from "react";
 import { cn } from "@/lib/utils";
 
@@ -188,6 +189,45 @@ function SwipeActionButton({
   );
 }
 
+export function SwipeableList({
+  items,
+  value,
+  defaultValue = null,
+  onValueChange,
+  onAction,
+  actionWidth = 72,
+  revealThreshold = 0.4,
+  closeOnAction = true,
+  className,
+  classNames,
+  renderItem,
+}: SwipeableListProps) {
+  const [openValue, setOpenValue] = useControllableSwipeValue({
+    value,
+    defaultValue,
+    onValueChange,
+  });
+
+  return (
+    <div className={cn("flex w-full flex-col gap-2", className, classNames?.root)}>
+      {items.map((item) => (
+        <SwipeableListRow
+          key={item.id}
+          item={item}
+          actionWidth={actionWidth}
+          revealThreshold={revealThreshold}
+          openValue={openValue}
+          setOpenValue={setOpenValue}
+          closeOnAction={closeOnAction}
+          onAction={onAction}
+          classNames={classNames}
+          renderItem={renderItem}
+        />
+      ))}
+    </div>
+  );
+}
+
 function SwipeableListRow({
   item,
   actionWidth,
@@ -219,282 +259,110 @@ function SwipeableListRow({
   const rightWidth = rightActions.length * actionWidth;
   const openSide = openValue?.id === item.id ? openValue.side : null;
   const targetX =
-    openSide === "left" ? leftWidth : openSide === "right" ? -rightWidth : 0;
-
-  const settleX = useCallback(
-    (nextX: number, velocity = 0) => {
-      commandedTargetRef.current = nextX;
-      animationRef.current?.stop();
-
-      if (reduce) {
-        x.set(nextX);
-        return;
-      }
-
-      animationRef.current = animate(x, nextX, {
-        ...ROW_SETTLE,
-        velocity: clampReleaseVelocity(velocity),
-        onComplete: () => x.set(nextX),
-      });
-    },
-    [reduce, x],
-  );
+    openSide === "left"
+      ? leftWidth
+      : openSide === "right"
+        ? -rightWidth
+        : 0;
 
   useEffect(() => {
-    return () => animationRef.current?.stop();
-  }, []);
+    if (animationRef.current) animationRef.current.stop();
+    animationRef.current = animate(x, targetX, {
+      type: "spring",
+      stiffness: 400,
+      damping: 35,
+    });
+  }, [openSide, targetX, x]);
 
-  useEffect(() => {
-    if (commandedTargetRef.current === targetX) {
-      return;
-    }
+  const handleDragEnd = (
+    _: unknown,
+    info: { offset: { x: number }; velocity: { x: number } },
+  ) => {
+    const offset = info.offset.x;
+    const velocity = info.velocity.x;
 
-    settleX(targetX);
-  }, [settleX, targetX]);
-
-  const getTargetX = useCallback(
-    (side: SwipeSide | null) =>
-      side === "left" ? leftWidth : side === "right" ? -rightWidth : 0,
-    [leftWidth, rightWidth],
-  );
-
-  const snapTo = useCallback(
-    (side: SwipeSide | null, velocity = 0) => {
-      setOpenValue(side ? { id: item.id, side } : null);
-      settleX(getTargetX(side), velocity);
-    },
-    [getTargetX, item.id, setOpenValue, settleX],
-  );
-
-  const onDragStart = useCallback(() => {
-    animationRef.current?.stop();
-
-    if (openValue && openValue.id !== item.id) {
+    if (offset > leftWidth * 0.4 || velocity > 300) {
+      if (leftActions.length > 0) setOpenValue({ id: item.id, side: "left" });
+    } else if (offset < -rightWidth * 0.4 || velocity < -300) {
+      if (rightActions.length > 0) setOpenValue({ id: item.id, side: "right" });
+    } else {
       setOpenValue(null);
     }
-  }, [item.id, openValue, setOpenValue]);
-
-  const onDragEnd = useCallback(
-    (_: PointerEvent, info: PanInfo) => {
-      const velocity = info.velocity.x;
-      const latest = x.get();
-      const leftOpenThreshold = Math.max(
-        revealThreshold,
-        leftWidth * OPEN_DISTANCE_RATIO,
-      );
-      const rightOpenThreshold = Math.max(
-        revealThreshold,
-        rightWidth * OPEN_DISTANCE_RATIO,
-      );
-
-      if (openSide === "left") {
-        if (
-          latest < leftWidth * CLOSE_DISTANCE_RATIO ||
-          velocity < -CLOSE_VELOCITY
-        ) {
-          snapTo(null, velocity);
-          return;
-        }
-
-        snapTo("left", velocity);
-        return;
-      }
-
-      if (openSide === "right") {
-        if (
-          Math.abs(latest) < rightWidth * CLOSE_DISTANCE_RATIO ||
-          velocity > CLOSE_VELOCITY
-        ) {
-          snapTo(null, velocity);
-          return;
-        }
-
-        snapTo("right", velocity);
-        return;
-      }
-
-      if (
-        isActionableSide(latest, leftWidth) &&
-        (latest > leftOpenThreshold ||
-          (velocity > OPEN_VELOCITY && latest > FLING_DISTANCE))
-      ) {
-        snapTo("left", velocity);
-        return;
-      }
-
-      if (
-        isActionableSide(latest, rightWidth) &&
-        (latest < -rightOpenThreshold ||
-          (velocity < -OPEN_VELOCITY && latest < -FLING_DISTANCE))
-      ) {
-        snapTo("right", velocity);
-        return;
-      }
-
-      snapTo(null, velocity);
-    },
-    [
-      leftWidth,
-      openSide,
-      revealThreshold,
-      rightWidth,
-      snapTo,
-      x,
-    ],
-  );
-
-  const handleAction = useCallback(
-    (action: SwipeAction, side: SwipeSide) => {
-      action.onClick?.(item);
-      onAction?.({ item, action, side });
-
-      if (closeOnAction) {
-        snapTo(null);
-      }
-    },
-    [closeOnAction, item, onAction, snapTo],
-  );
-
-  const defaultContent = (
-    <div className="flex min-w-0 items-center gap-3">
-      {item.leading ? (
-        <div className={cn("shrink-0", classNames?.leading)}>
-          {item.leading}
-        </div>
-      ) : null}
-      <div className={cn("min-w-0 flex-1", classNames?.content)}>
-        {item.title ? (
-          <div
-            className={cn(
-              "truncate text-sm font-medium text-foreground",
-              classNames?.title,
-            )}
-          >
-            {item.title}
-          </div>
-        ) : null}
-        {item.description ? (
-          <div
-            className={cn(
-              "mt-0.5 truncate text-xs text-muted-foreground",
-              classNames?.description,
-            )}
-          >
-            {item.description}
-          </div>
-        ) : null}
-      </div>
-      {item.meta ? (
-        <div
-          className={cn(
-            "shrink-0 text-xs font-medium text-muted-foreground",
-            classNames?.meta,
-          )}
-        >
-          {item.meta}
-        </div>
-      ) : null}
-    </div>
-  );
+  };
 
   return (
     <div
       className={cn(
-        "relative isolate overflow-hidden rounded-2xl bg-muted",
-        item.disabled && "opacity-60",
+        "relative overflow-hidden rounded-2xl border border-border bg-card",
         classNames?.item,
       )}
     >
-      <div
-        aria-hidden={!openSide}
-        inert={!openSide}
-        className={cn(
-          "absolute inset-0 z-0 flex overflow-hidden rounded-2xl",
-          classNames?.rail,
-        )}
-      >
-        <div className="flex h-full overflow-hidden rounded-l-2xl">
-          {leftActions.map((action) => (
-            <SwipeActionButton
-              key={action.id}
-              action={action}
-              actionWidth={actionWidth}
-              className={classNames?.action}
-              focusable={openSide === "left"}
-              onAction={handleAction}
-              side="left"
-            />
+      <div className="absolute inset-0 flex items-center justify-between">
+        <div className="flex h-full items-center" style={{ width: leftWidth }}>
+          {leftActions.map((act) => (
+            <button
+              key={act.id}
+              type="button"
+              onClick={() => {
+                act.onClick?.(item);
+                setOpenValue(null);
+              }}
+              style={{ width: actionWidth }}
+              className="flex h-full items-center justify-center font-semibold text-white bg-blue-600"
+            >
+              {act.label}
+            </button>
           ))}
         </div>
-        <div className="ml-auto flex h-full overflow-hidden rounded-r-2xl">
-          {rightActions.map((action) => (
-            <SwipeActionButton
-              key={action.id}
-              action={action}
-              actionWidth={actionWidth}
-              className={classNames?.action}
-              focusable={openSide === "right"}
-              onAction={handleAction}
-              side="right"
-            />
+        <div
+          className="flex h-full items-center justify-end"
+          style={{ width: rightWidth }}
+        >
+          {rightActions.map((act) => (
+            <button
+              key={act.id}
+              type="button"
+              onClick={() => {
+                act.onClick?.(item);
+                setOpenValue(null);
+              }}
+              style={{ width: actionWidth }}
+              className={cn(
+                "flex h-full items-center justify-center font-semibold text-white",
+                act.tone === "danger"
+                  ? "bg-red-600"
+                  : "bg-zinc-700",
+              )}
+            >
+              {act.label}
+            </button>
           ))}
         </div>
       </div>
 
       <motion.div
-        drag={item.disabled ? false : "x"}
+        drag="x"
         dragConstraints={{ left: -rightWidth, right: leftWidth }}
-        dragElastic={0.04}
-        dragMomentum={false}
-        onDragStart={onDragStart}
-        onDragEnd={onDragEnd}
+        dragElastic={0.15}
+        onDragEnd={handleDragEnd}
         style={{ x }}
-        className={cn(
-          "relative z-10 min-h-[72px] cursor-grab touch-pan-y select-none rounded-2xl border border-border bg-card px-4 py-3 shadow-sm active:cursor-grabbing",
-          classNames?.surface,
-        )}
+        className="relative z-10 bg-card p-4 text-foreground cursor-grab active:cursor-grabbing"
       >
-        {renderItem ? renderItem(item) : item.content ?? defaultContent}
+        {renderItem ? (
+          renderItem(item)
+        ) : (
+          <div className="flex items-center justify-between">
+            <div>
+              <p className="font-semibold">{item.title}</p>
+              {item.description && (
+                <p className="text-xs text-muted-foreground">
+                  {item.description}
+                </p>
+              )}
+            </div>
+          </div>
+        )}
       </motion.div>
     </div>
   );
-}
-
-export function SwipeableList({
-  items,
-  value,
-  defaultValue = null,
-  onValueChange,
-  onAction,
-  actionWidth = 56,
-  revealThreshold = 34,
-  closeOnAction = true,
-  className,
-  classNames,
-  renderItem,
-}: SwipeableListProps) {
-  const [openValue, setOpenValue] = useControllableSwipeValue({
-    value,
-    defaultValue,
-    onValueChange,
-  });
-
-  return (
-    <div className={cn("flex w-full flex-col gap-2", className, classNames?.root)}>
-      {items.map((item) => (
-        <SwipeableListRow
-          key={item.id}
-          item={item}
-          actionWidth={actionWidth}
-          revealThreshold={revealThreshold}
-          openValue={openValue}
-          setOpenValue={setOpenValue}
-          closeOnAction={closeOnAction}
-          onAction={onAction}
-          classNames={classNames}
-          renderItem={renderItem}
-        />
-      ))}
-    </div>
-  );
-}
+}
