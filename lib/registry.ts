@@ -954,6 +954,14 @@ export const registry: CategoryEntry[] = [
         badge: "new",
         launchedAt: "2026-08-07",
       },
+      {
+        slug: "minimal-card-expand",
+        name: "Minimal Card Expand",
+        description: "Interactive Family wallet interface with expandable cards, 2x2 to top-banner layout morphing, copy address feedback, and outside click collapse.",
+        file: "components/motion/minimal-card-expand.tsx",
+        badge: "new",
+        launchedAt: "2026-08-07",
+      },
     ],
   },
   {

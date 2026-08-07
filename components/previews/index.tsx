@@ -541,6 +541,11 @@ export const previews: Record<string, ComponentType> = {
       (m) => m.ProximitySidebarPreview,
     ),
   ),
+  "motion/minimal-card-expand": dynamic(() =>
+    import("./motion/minimal-card-expand.preview").then(
+      (m) => m.MinimalCardExpandPreview,
+    ),
+  ),
 };
 
 export function getPreview(category: string, slug: string) {
